@@ -69,7 +69,7 @@ h2 {
 .upperLogo #logo{
 
     animation-name: example;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards; /*THis shit just makes it stay in the last animation place*/ 
 }
 

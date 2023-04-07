@@ -1,0 +1,13 @@
+* {
+    background-color: #2d2727;
+    margin: 0;
+    padding: 0;
+}
+
+#logo{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: auto;
+    width: 100px;
+}

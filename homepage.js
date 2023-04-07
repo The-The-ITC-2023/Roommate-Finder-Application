@@ -12,6 +12,9 @@ window.onload=function(){
 		document.location.href = "login.php";
     });
     button2.addEventListener('click' ,moveToCorner);
+    logoContainer.addEventListener("animationend", function() {
+		document.location.href = "createAccount.php";
+    });
 }
 
 function moveToCorner(){

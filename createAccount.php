@@ -2,10 +2,11 @@
 
 <head>
     <title>Roommate Application</title>
-    <link rel="stylesheet" href="styles/style.php">
+    <link rel="stylesheet" href="styles/createAccount.css">
 </head>
 
 <body>
+    <img src="ITCLogoOutline.png" id="logo">
     <form method="post">
         First Name:<br>
         <input type="text" name="fname"><br>
