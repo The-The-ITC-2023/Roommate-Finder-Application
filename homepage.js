@@ -8,6 +8,9 @@ const logoContainer = document.getElementById("logo-container");
 console.log(button1);
 window.onload=function(){
     button1.addEventListener('click' ,moveToCorner);
+    logoContainer.addEventListener("animationend", function() {
+		document.location.href = "login.php";
+    });
     button2.addEventListener('click' ,moveToCorner);
 }
 
@@ -18,7 +21,6 @@ function moveToCorner(){
     logo.style.top = 0;
     logoContainer.className = "upperLogo";
     removeHomeElements();
-    document.location.href = "createAccount.php";
 }
 
 function removeHomeElements(){
