@@ -21,9 +21,9 @@
             <input type="password" name="password" class="input" placeholder=" Enter Password..."><br>
             <p class="title">Confirm Password:</p><br>
             <input type="password" name="cpassword" class="input" placeholder=" Confirm Password..."><br>
-            <input type="submit" name="submit" value="Create Account" id="submit" onclick="changeP()" class = "button">
+            <input type="submit" name="submit" value="Create Account" id="submit" onclick="changeP()" class="button">
             <h2>Already have an account?</h2>
-            <a id="log-in" href="login.php" class = "button">Log In</a>
+            <a id="log-in" href="login.php" class="button">Log In</a>
         </form>
     </div>
 </body>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-        $stmt->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
+        $stmt->bind_param("ssss", $fname, $lname, $email, $passwordHash);
         $stmt->execute();
 
         header("Location: home.html");

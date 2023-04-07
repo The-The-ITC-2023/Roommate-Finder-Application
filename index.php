@@ -24,10 +24,12 @@ if (isset($_SESSION["currentID"])) {
     <hr style="margin-top: 100px;" />
     <a href="search.php"><button class="topleft homeButton">Search</button> </a>
     <div class="topright">
-        <a href="edit.php"><button class="homeButton">Edit Account</button></a>
+        <a href="moreInfo.php"><button class="homeButton">Edit Account</button></a>
         <a href="home.html"><button class="homeButton">Sign Out</button></a>
     </div>
-    <div class="greeting"><p class="centertext">Hello <?= $user["firstName"] ?>!</p></div>
+    <div class="greeting">
+        <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
+    </div>
 </body>
 
 </html>

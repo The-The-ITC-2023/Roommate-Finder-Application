@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //mysqli_stmt_bind_param($stmt, 's', $name);
 
     $result = $mysqli->query($stmt);
-    
+
     // $user = $result->fetch_assoc();
 
     //init header row
@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //populate table
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>",$row['firstName']," ", $row['lastName'],"</td>";
-        echo "<td>",$row['email'],"</td>";
+        echo "<td>", $row['firstName'], " ", $row['lastName'], "</td>";
+        echo "<td>", $row['email'], "</td>";
         echo "</tr>";
     }
     echo "</table>";
