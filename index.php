@@ -17,11 +17,17 @@ if (isset($_SESSION["currentID"])) {
 
 <head>
     <title>User</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-    <p>Hello <?= $user["firstName"] ?>!</p>
-    <p>Your email is <?= $user["email"] ?></p>
+    <hr style="margin-top: 100px;" />
+    <a href="search.php"><button class="topleft homeButton">Search</button> </a>
+    <div class="topright">
+        <a href="edit.php"><button class="homeButton">Edit Account</button></a>
+        <a href="home.html"><button class="homeButton">Sign Out</button></a>
+    </div>
+    <div class="greeting"><p class="centertext">Hello <?= $user["firstName"] ?>!</p></div>
 </body>
 
 </html>

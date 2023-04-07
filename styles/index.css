@@ -1,0 +1,32 @@
+/*index.css */
+body {
+    font-family: 'Corbel Light';
+}
+.topright {
+    display: flex;
+    position:absolute;
+    top:105;
+    right:0;
+}
+
+.topleft {
+    position: absolute;
+    top:105;
+    left:0;
+}
+
+.greeting {
+
+    margin-top: 105;
+    margin: 0 auto;
+}
+
+.homeButton {
+    width: 125px;
+    height: 40px;
+}
+
+.centertext {
+    text-align: center;
+}
+
