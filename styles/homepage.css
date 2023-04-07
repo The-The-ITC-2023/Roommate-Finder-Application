@@ -2,6 +2,7 @@
     background-color: #2d2727;
     margin: 0;
     padding: 0;
+    font-family: 'Corbel Light';
 }
 
 body {
@@ -14,7 +15,7 @@ body {
 }
 
 #logo{
-    width: 300px;
+    width: 25%;
     height: auto;
     text-align: center;
     margin: auto;
@@ -75,8 +76,8 @@ h2 {
 }
 
 @keyframes example {
-    0% {width: 300px; left: 50px; top: 50px;}
-    100%  {left:0px; top:0px; width: 100px; }
+    0% {width: 25%; left: 40%; top: 40%;}
+    100%  {left:0px; top:0px; width: 7%; }
 }
 
 @-webkit-keyframes action {

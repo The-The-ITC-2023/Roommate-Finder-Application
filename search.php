@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <title>Search</title>
+    <link rel="stylesheet" href="styles/search.css" />
 </head>
 
 <body>
