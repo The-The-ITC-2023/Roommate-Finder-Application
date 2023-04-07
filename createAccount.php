@@ -55,16 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //check if email exists already
         $query = "SELECT * FROM account WHERE email = '". $email . "'";
 
-        $stmt = $mysqli->stmt_init();
+        $result = $mysqli->query($query);
 
-        if (!$stmt->prepare($query)) {
-            echo "sadge";
-            die("SQL Error: " .  $mysqli->error);
-        }
-
-        $result = $stmt->execute();
-
-        if ($result) {
+        if ($result->fetch_assoc()) {
             //email already exists
             $is_invalid = true;
             $errmsg = "Email address taken!";
