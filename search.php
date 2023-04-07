@@ -6,18 +6,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $sql = sprintf("SELECT * FROM account WHERE firstName = '%s'", $_POST["firstName"]);
 
-    $result = $mysqli->query($sql);
+    if ($stmt = $mysqli->prepare($sql)) {
+        echo "Hi ", $_POST["firstName"], "! Your email is: <br />";
 
-    $user = $result->fetch_assoc();
+        //execute statement /
+        $stmt->execute();
 
+        // bind result variables /
+        $stmt->bind_result($email);
+
+        // fetch values /
+        while ($stmt->fetch()) {
+            echo $email;
+            echo "<br />";
+        }
+
+        /* close statement*/
+        $stmt->close();
+    }
+
+    
+/*
     session_start();
 
     $_SESSION["currentID"] = $user["id"];
 
     header("Location: index.php");
-    exit;
+    exit; 
+*/
 }
-
 ?>
 
 <html>
