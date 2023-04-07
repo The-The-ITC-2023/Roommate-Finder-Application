@@ -90,18 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <form id="form" method="post">
             <p class="title">Name:</p><br>
-            <input type="text" name="fname" class="input" placeholder=" First Name"><br>
-            <input type="text" name="lname" class="input" placeholder=" Last Name"><br>
+            <input type="text" name="fname" class="input blue-border" placeholder=" First Name"><br>
+            <input type="text" name="lname" class="input blue-border" placeholder=" Last Name"><br>
             <p class="title">Email:</p><br>
             <input type="email" name="email" class="input blue-border" placeholder=" Ex: JohnDoe@gmail.com"><br>
             <p class="title">Password:</p><br>
-            <input type="password" name="password" class="input red-border" placeholder=" Enter Password..."><br>
+            <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
             <p class="title">Confirm Password:</p><br>
-            <input type="password" name="cpassword" class="input red-border" placeholder=" Confirm Password..."><br>
+            <input type="password" name="cpassword" class="input blue-border" placeholder=" Confirm Password..."><br>
             <p class="title small">*At least 8 characters, 1 uppercase, 1 number</p><br>
             <input type="submit" name="submit" value="CREATE ACCOUNT" id="submit" onclick="changeP()" class = "button borderless">
-            <h2>Already have an account?</h2>
-            <a id="log-in" href="login.php" class = "button">LOG IN</a>
+            <h2 class="small" style="margin-top: 1%; color: black;">Already have an account? <a id="log-in" href="login.php">Log in</a></h2>  
         </form>
     </div>
 </body>

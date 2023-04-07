@@ -30,6 +30,7 @@ h1 {
     font-size: 42px;
     font-family: 'nexaheavy';
     text-align: center;
+    margin-top: 3%;
 }
 
 h2 {
@@ -115,18 +116,20 @@ input:focus {
 #log-in {
     text-decoration: none;
     vertical-align: middle;
-    line-height: 35px;
+    line-height: 25px;
 }
 
 .button {
     margin-left: 20%;
     margin-right: 20%;
+    min-width: 40%;
     height: 35px;
     border-radius: 15px;
     background-color: #00A7D8;
     color: white;
     font-family: 'nexaheavy';
 }
+
 
 .borderless {
     border: none;
@@ -143,3 +146,18 @@ input:focus {
     background-color: #E5E8E4;
 }
 
+a#log-in {
+    background-color: #E5E8E4;
+}
+
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color:#666866;
+}
+
+a:active {
+    color: black;
+}

@@ -81,12 +81,12 @@ h2 {
 
 .upperLogo #logo{
 
-    animation-name: example;
+    animation-name: move;
     animation-duration: 0.50s;
-    animation-fill-mode: forwards; /*THis shit just makes it stay in the last animation place*/ 
+    animation-fill-mode: forwards; /*This makes it stay in the last animation place*/ 
 }
 
-@keyframes example {
+@keyframes move {
     0% {width: 25%; left: 40%; top: 40%;}
     100%  {left:0px; top:0px; width: 7%; }
 }
