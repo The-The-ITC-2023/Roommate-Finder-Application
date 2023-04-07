@@ -213,16 +213,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // save original answers
             $mysqli = require __DIR__ . "/database.php";
 
-            $sql = "INSERT INTO preference(acct_id, clean, smoke, drugs, loud, weekdaySleep, weekendSleep, petPreference)
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-
+            $sql = "UPDATE preference
+                    SET clean = '{$clean}', smoke = '{$smoke}', drugs = '{$drugs}', weekdaySleep = '{$weekdaySleep}',
+                    weekendSleep = '{$weekendSleep}', loud = '{$noise}', petPreference = '{$petPreference}'
+                    WHERE id = {$_SESSION["currentID"]}";
             $stmt = $mysqli->stmt_init();
-
             if (!$stmt->prepare($sql)) {
                 die("SQL Error: " .  $mysqli->error);
             }
-
-            $stmt->bind_param("isssssss", $_SESSION["currentID"], $clean, $smoke, $drugs, $weekdaySleep, $weekendSleep, $noise, $petPreference);
             $stmt->execute();
 
             switch ($clean) {
@@ -307,23 +305,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // adds values
-            $mysqli = require __DIR__ . "/database.php";
-
-            $sql = "INSERT INTO preferenceValues(acct_id, clean, smoke, drugs, loud, weekdaySleep, weekendSleep, petPreference)
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-
+            $sql = "UPDATE preferenceValues
+                    SET clean = '{$clean}', smoke = '{$smoke}', drugs = '{$drugs}', weekdaySleep = '{$weekdaySleep}',
+                    weekendSleep = '{$weekendSleep}', loud = '{$noise}', petPreference = '{petPreference}'
+                    WHERE id = {$_SESSION["currentID"]}";
             $stmt = $mysqli->stmt_init();
-
             if (!$stmt->prepare($sql)) {
                 die("SQL Error: " .  $mysqli->error);
             }
-
-            $stmt->bind_param("iiiiiiii", $_SESSION["currentID"], $clean, $smoke, $drugs, $weekdaySleep, $weekendSleep, $noise, $petPreference);
             $stmt->execute();
 
             // adds account info
-            $mysqli = require __DIR__ . "/database.php";
-
             $sql = "UPDATE account 
                     SET bio = '{$description}', university = '{$university}', major = '{$major}', gender = '{$gender}'
                     WHERE id = {$_SESSION["currentID"]}";

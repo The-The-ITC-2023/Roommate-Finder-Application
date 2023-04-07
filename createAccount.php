@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mysqli = require __DIR__ . "/database.php";
 
         //check if email exists already
-        $query = "SELECT * FROM account WHERE email = '". $email . "'";
+        $query = "SELECT * FROM account WHERE email = '" . $email . "'";
 
         $result = $mysqli->query($query);
 
@@ -62,25 +62,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $is_invalid = true;
             $errmsg = "Email address taken!";
         } else {
-        //add new entry to account
-        $sql = "INSERT INTO account(firstName, lastName, email, passwordHash)
-        VALUES(?, ?, ?, ?)";
+            //add new entry to account
+            $sql = "INSERT INTO account(firstName, lastName, email, passwordHash)
+            VALUES(?, ?, ?, ?)";
 
-        $stmt2 = $mysqli->stmt_init();
+            $stmt2 = $mysqli->stmt_init();
 
-        if (!$stmt2->prepare($sql)) {
-            die("SQL Error: " .  $mysqli->error);
+            if (!$stmt2->prepare($sql)) {
+                die("SQL Error: " .  $mysqli->error);
+            }
+
+            $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+            $stmt2->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
+            $stmt2->execute();
+
+            // gets created user's id
+            $stmt3 = sprintf("SELECT *  FROM account WHERE email='%s'", $email);
+            $result = $mysqli->query($stmt3);
+            $user = $result->fetch_assoc();
+            $userID = $user['id'];
+            // end
+
+            $sql = "INSERT INTO preference(acct_id) VALUES(?)";
+            $stmt4 = $mysqli->stmt_init();
+            if (!$stmt4->prepare($sql)) {
+                die("SQL Error: " .  $mysqli->error);
+            }
+            $stmt4->bind_param("i", $userID);
+            $stmt4->execute();
+
+            $sql = "INSERT INTO preferencevalues(acct_id) VALUES(?)";
+            $stmt5 = $mysqli->stmt_init();
+            if (!$stmt5->prepare($sql)) {
+                die("SQL Error: " .  $mysqli->error);
+            }
+            $stmt5->bind_param("i", $userID);
+            $stmt5->execute();
+
+
+            header("Location: home.html");
         }
-
-        $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-        $stmt2->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
-        $stmt2->execute();
-
-        header("Location: home.html");
-        }
-
-        
     }
 }
 ?>
@@ -98,9 +120,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Create Account</h1>
         <div class="error">
             <?php
-                if ($is_invalid){
-                    echo "<p class='error'>",$errmsg,"</p>";
-                }?>
+            if ($is_invalid) {
+                echo "<p class='error'>", $errmsg, "</p>";
+            } ?>
         </div>
         <form id="form" method="post">
             <p class="title">Name:</p><br>
@@ -113,8 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="title">Confirm Password:</p><br>
             <input type="password" name="cpassword" class="input blue-border" placeholder=" Confirm Password..."><br>
             <p class="title small">*At least 8 characters, 1 uppercase, 1 number</p><br>
-            <input type="submit" name="submit" value="CREATE ACCOUNT" id="submit" onclick="changeP()" class = "button borderless">
-            <h2 class="small" style="margin-top: 1%; color: black;">Already have an account? <a id="log-in" href="login.php">Log in</a></h2>  
+            <input type="submit" name="submit" value="CREATE ACCOUNT" id="submit" onclick="changeP()" class="button borderless">
+            <h2 class="small" style="margin-top: 1%; color: black;">Already have an account? <a id="log-in" href="login.php">Log in</a></h2>
         </form>
     </div>
 </body>
