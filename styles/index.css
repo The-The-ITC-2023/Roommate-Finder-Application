@@ -1,6 +1,23 @@
-/*index.css */
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
-    font-family: 'Corbel Light';
+    font-family: 'nexaextra_light';
 }
 .topright {
     display: flex;

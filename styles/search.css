@@ -1,6 +1,29 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     background-color: #2d2727;
     margin: 0;
     padding: 0;
-    font-family: 'Corbel Light';
+    font-family: 'nexaextra_light';
+}
+
+button {
+    font-family : inherit; 
+    font-size: 1em; 
 }
