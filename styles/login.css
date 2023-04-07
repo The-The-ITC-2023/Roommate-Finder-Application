@@ -136,10 +136,19 @@ h2 {
     cursor: pointer;
 }
 
-#error {
+.error {
     margin-top: 3%;
     color: #ff4444;
-    background-color: #f0eb8d;
-    display: none;
+    background-color:#E5E8E4;
+    display: block;
+}
+
+.spacer {
+    padding: 20% 0px;
+    background-color:#E5E8E4;
+}
+
+input:focus {
+    outline-color: #898686;
 }
 

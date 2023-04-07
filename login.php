@@ -42,14 +42,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
 
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
+    
 
 
     <div class=login-form>
         <h1>Log in</h1>
-        <div id="error">Error: You Get No Bitches</div>
+        <div id="error" class="error">
+            <?php 
+            if ($is_invalid){
+                echo "<p class='error'>Invalid Login</p>"; 
+            }?>
+        </div>
         <form id="form" method="post">
         <p class="title">Email:</p><br>
             <input type="email" name="email" class="input" placeholder=" Enter Email"><br>
@@ -57,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
             <input class="button borderless" type="submit" value="SUBMIT" />
         </form>
+        <div class="spacer"></div>
     </div>
 </body>
 

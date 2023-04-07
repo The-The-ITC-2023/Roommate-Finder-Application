@@ -21,7 +21,7 @@ if (isset($_SESSION["currentID"])) {
 </head>
 
 <body>
-    <hr style="margin-top: 100px;" />
+    <hr style="margin-top: 8%;" />
     <a href="search.php"><button class="topleft homeButton">Search</button> </a>
     <div class="topright">
         <a href="moreInfo.php"><button class="homeButton">Edit Account</button></a>
