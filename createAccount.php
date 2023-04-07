@@ -9,6 +9,7 @@
     <a href="home.html"><img src="ITCLogoOutline.png" id="logo"></a>
     <div class=login-form>
         <h1>Create Account</h1>
+        <div id="error">Error: You Get No Bitches</div>
         <form id="form" method="post">
             <p class="title">First Name:</p><br>
             <input type="text" name="fname" class="input" placeholder=" Ex: John"><br>
@@ -23,7 +24,6 @@
             <input type="submit" name="submit" value="Create Account" id="submit" onclick="changeP()" class = "button">
             <h2>Already have an account?</h2>
             <a id="log-in" href="login.php" class = "button">Log In</a>
-            <div id="error">Error: You Get No Bitches</div>
         </form>
     </div>
 </body>
