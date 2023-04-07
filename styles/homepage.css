@@ -1,0 +1,89 @@
+* {
+    background-color: #2d2727;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+}
+
+#logo{
+    width: 300px;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: -100px;
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#button2 {
+    margin-bottom: 60px;
+}
+
+.button {
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color:#8F43EE;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 20px;
+    vertical-align: middle;
+    border-radius: 15px;
+    text-justify: auto;
+    margin: auto;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color:#9F54FF;
+    cursor: pointer;
+}
+
+.logo {
+    -webkit-animation: action 3s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+
+.upperLogo #logo{
+
+    animation-name: example;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /*THis shit just makes it stay in the last animation place*/ 
+}
+
+@keyframes example {
+    0% {width: 300px; left: 50px; top: 50px;}
+    100%  {left:0px; top:0px; width: 100px; }
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
