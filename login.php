@@ -1,6 +1,7 @@
 <?php
 
 $is_invalid = false;
+$errmsg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $mysqli = require __DIR__ . "/database.php";
@@ -23,10 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["currentID"] = $user["id"];
             header("Location: index.php");
             exit;
-        } 
+        } else {
+            $errmsg = "Incorrect Password!";
+            $is_invalid = true;
+        }
+    } else {
+        $errmsg = "Email address doesn't exist!";
+        $is_invalid = true;
     }
-
-    $is_invalid = true;
 
 } 
 
@@ -50,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div id="error" class="error">
             <?php 
             if ($is_invalid){
-                echo "<p class='error'>Invalid Login</p>"; 
+                echo "<p class='error'>",$errmsg,"</p>"; 
             }?>
         </div>
         <form id="form" method="post">

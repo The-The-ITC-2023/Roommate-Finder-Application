@@ -137,10 +137,9 @@ input:focus {
     cursor: pointer;
 }
 
-#error {
+.error {
     margin-top: 3%;
     color: #ff4444;
     background-color: #E5E8E4;
-    display: none;
 }
 
