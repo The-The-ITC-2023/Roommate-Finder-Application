@@ -52,21 +52,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $mysqli = require __DIR__ . "/database.php";
 
-        $sql = "INSERT INTO account(firstName, lastName, email, passwordHash)
-        VALUES(?, ?, ?, ?)";
+        //check if email exists already
+        $query = "SELECT * FROM account WHERE email = '". $email . "'";
 
         $stmt = $mysqli->stmt_init();
 
-        if (!$stmt->prepare($sql)) {
+        if (!$stmt->prepare($query)) {
+            echo "sadge";
+            die("SQL Error: " .  $mysqli->error);
+        }
+
+        $result = $stmt->execute();
+
+        if ($result) {
+            //email already exists
+            $is_invalid = true;
+            $errmsg = "Email address taken!";
+        } else {
+        //add new entry to account
+        $sql = "INSERT INTO account(firstName, lastName, email, passwordHash)
+        VALUES(?, ?, ?, ?)";
+
+        $stmt2 = $mysqli->stmt_init();
+
+        if (!$stmt2->prepare($sql)) {
             die("SQL Error: " .  $mysqli->error);
         }
 
         $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-        $stmt->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
-        $stmt->execute();
+        $stmt2->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
+        $stmt2->execute();
 
         header("Location: home.html");
+        }
+
+        
     }
 }
 ?>

@@ -19,16 +19,31 @@
 body {
     font-family: 'nexaextra_light';
 }
+
+.logo{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: auto;
+    width: 7%;
+}
+
+.parent {
+    position: relative;
+    display: block;
+
+}
+
 .topright {
-    display: flex;
+    
     position:absolute;
-    top:105;
+    top: 0;
     right:0;
 }
 
 .topleft {
-    position: absolute;
-    top:105;
+    position: fixed;
+    top:18%;
     left:0;
 }
 
@@ -38,9 +53,29 @@ body {
     margin: 0 auto;
 }
 
-.homeButton {
+.searchButton {
+    display: inline-block;
     width: 125px;
-    height: 40px;
+    height: auto;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaextra_light';
+    font-weight: bold;
+    border: 0.5px solid black;
+}
+
+.acctButton {
+    display: inline-block;
+    width: 125px;
+    height: auto;
+    padding: 4% 4%;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaextra_light';
+    font-weight: bold;
+    border: 0.5px solid black;
 }
 
 .centertext {

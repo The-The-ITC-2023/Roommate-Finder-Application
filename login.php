@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         <form id="form" method="post">
         <p class="title">Email:</p><br>
-            <input type="email" name="email" class="input" placeholder=" Enter Email"><br>
+            <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
             <p class="title">Password:</p><br>
             <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
             <input class="button borderless" type="submit" value="SUBMIT" />
