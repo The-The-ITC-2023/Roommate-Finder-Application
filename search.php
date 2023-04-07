@@ -4,36 +4,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $mysqli = require __DIR__ . "/database.php";
 
-    $sql = sprintf("SELECT * FROM account WHERE firstName = '%s'", $_POST["firstName"]);
+    //$name = $_POST["firstName"];
+    $stmt = sprintf("SELECT *  FROM account WHERE firstName='%s'", $_POST["firstName"]);
+    //mysqli_stmt_bind_param($stmt, 's', $name);
 
-    if ($stmt = $mysqli->prepare($sql)) {
-        echo "Hi ", $_POST["firstName"], "! Your email is: <br />";
-
-        //execute statement /
-        $stmt->execute();
-
-        // bind result variables /
-        $stmt->bind_result($email);
-
-        // fetch values /
-        while ($stmt->fetch()) {
-            echo $email;
-            echo "<br />";
-        }
-
-        /* close statement*/
-        $stmt->close();
-    }
-
+    $result = $mysqli->query($stmt);
     
-/*
-    session_start();
+    // $user = $result->fetch_assoc();
 
-    $_SESSION["currentID"] = $user["id"];
+    //init header row
+    echo "<table border='1px solid black'>";
+    echo "<tr>";
+    echo "<th>Name</th><th>Email</th><th>Picture</th>";
+    echo "</tr>";
 
-    header("Location: index.php");
-    exit; 
-*/
+    //populate table
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>",$row['firstName']," ", $row['lastName'],"</td>";
+        echo "<td>",$row['email'],"</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
 }
 ?>
 
