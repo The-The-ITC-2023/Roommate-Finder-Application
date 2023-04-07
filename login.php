@@ -17,17 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($user) {
 
         if (password_verify($_POST["password"], $user["passwordHash"])) {
-
+            
             session_start();
 
             $_SESSION["currentID"] = $user["id"];
             header("Location: index.php");
             exit;
-        }
+        } 
     }
 
     $is_invalid = true;
-}
+
+} 
 
 ?>
 
@@ -35,24 +36,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 
 
 <body>
 
-    <?php if ($is_invalid) : ?>
+    <?php if ($is_invalid): ?>
         <em>Invalid login</em>
     <?php endif; ?>
 
-    <form method="post">
-        <label for="email">email</label> <br />
-        <input type="text" id="firstName" name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" /><br />
-        <br />
-        <label for="password">password</label> <br />
-        <input type="password" id="password" name="password" /><br />
-        <br />
-        <input type="submit" value="submit" />
-    </form>
+
+    <div class=login-form>
+        <h1>Log in</h1>
+        <div id="error">Error: You Get No Bitches</div>
+        <form id="form" method="post">
+        <p class="title">Email:</p><br>
+            <input type="email" name="email" class="input" placeholder=" Enter Email"><br>
+            <p class="title">Password:</p><br>
+            <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
+            <input class="button borderless" type="submit" value="SUBMIT" />
+        </form>
+    </div>
 </body>
 
 </html>

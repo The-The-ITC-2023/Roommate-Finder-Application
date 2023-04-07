@@ -11,19 +11,19 @@
         <h1>Create Account</h1>
         <div id="error">Error: You Get No Bitches</div>
         <form id="form" method="post">
-            <p class="title">First Name:</p><br>
-            <input type="text" name="fname" class="input" placeholder=" Ex: John"><br>
-            <p class="title">Last Name:</p><br>
-            <input type="text" name="lname" class="input" placeholder=" Ex: Doe"><br>
+            <p class="title">Name:</p><br>
+            <input type="text" name="fname" class="input" placeholder=" First Name"><br>
+            <input type="text" name="lname" class="input" placeholder=" Last Name"><br>
             <p class="title">Email:</p><br>
-            <input type="email" name="email" class="input" placeholder=" Ex: JohnDoe@gmail.com"><br>
-            <p class="title">Password: (Minimum 8 characters with at least 1 capital letter, 1 lowercase letter, and 1 number)</p><br>
-            <input type="password" name="password" class="input" placeholder=" Enter Password..."><br>
+            <input type="email" name="email" class="input blue-border" placeholder=" Ex: JohnDoe@gmail.com"><br>
+            <p class="title">Password:</p><br>
+            <input type="password" name="password" class="input red-border" placeholder=" Enter Password..."><br>
             <p class="title">Confirm Password:</p><br>
-            <input type="password" name="cpassword" class="input" placeholder=" Confirm Password..."><br>
-            <input type="submit" name="submit" value="Create Account" id="submit" onclick="changeP()" class="button">
+            <input type="password" name="cpassword" class="input red-border" placeholder=" Confirm Password..."><br>
+            <p class="title small">*At least 8 characters, 1 uppercase, 1 number</p><br>
+            <input type="submit" name="submit" value="CREATE ACCOUNT" id="submit" onclick="changeP()" class = "button borderless">
             <h2>Already have an account?</h2>
-            <a id="log-in" href="login.php" class="button">Log In</a>
+            <a id="log-in" href="login.php" class = "button">LOG IN</a>
         </form>
     </div>
 </body>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-        $stmt->bind_param("ssss", $fname, $lname, $email, $passwordHash);
+        $stmt->bind_param("ssss", $_POST["fname"], $_POST["lname"], $_POST["email"], $passwordHash);
         $stmt->execute();
 
         header("Location: home.html");

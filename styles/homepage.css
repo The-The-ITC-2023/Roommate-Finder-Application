@@ -17,7 +17,7 @@
 }
 
 * {
-    background-color: #2d2727;
+    background-color: #F5F5F5;
     margin: 0;
     padding: 0;
     font-family: 'nexaextra_light';
@@ -41,7 +41,6 @@ body {
 }
 
 h1 {
-    color: whitesmoke;
     text-align: center;
     margin-top: 5%;
     margin-bottom: 1%;
@@ -61,23 +60,17 @@ h2 {
 .button {
     height: 50px;
     width: 200px;
-    display: flex;
     justify-content: center;
     margin: auto;
-    background-color:#8F43EE;
+    background-color:#00A7D8;
     text-align: center;
-    color: whitesmoke;
     font-size: 20px;
-    vertical-align: middle;
     border-radius: 15px;
-    text-justify: auto;
-    margin: auto;
     padding: 5px;
-    margin-bottom: 5px;
 }
 
 .button:hover {
-    background-color:#9F54FF;
+    background-color:#3ebce2;
     cursor: pointer;
 }
 
@@ -89,7 +82,7 @@ h2 {
 .upperLogo #logo{
 
     animation-name: example;
-    animation-duration: 1s;
+    animation-duration: 0.50s;
     animation-fill-mode: forwards; /*THis shit just makes it stay in the last animation place*/ 
 }
 
