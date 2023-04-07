@@ -5,8 +5,7 @@
     font-family: 'Corbel Light';
     
 }
-h1 {
-    margin-top: 25px;
+h1 {    
     background-color: #f0eb8d;
     color:black;
     font-size: 50px;
@@ -14,11 +13,10 @@ h1 {
 }
 
 h2 {
-    margin-top:10px;
+    margin-top:5%;
     background-color: #f0eb8d;
     color:black;
     font-size: 15px;
-    margin-bottom: 3px;
 }
 
 #logo{
@@ -38,9 +36,10 @@ h2 {
     margin: auto;
     border: solid;
     border-color: #f0eb8d;
-    margin-left: 700px;
-    margin-right: 700px;
-    border-radius: 15px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: -3%;
+    border-radius: 1%;
 }
 
 #form {
@@ -48,31 +47,27 @@ h2 {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 15px;
-    margin-bottom: 30px;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 4%;
+    margin-bottom: 4%;
     background-color:#f0eb8d;
 }
 
 .title {
     background-color: #f0eb8d;
     text-align: left;
-    margin-left: 70px;
-    margin-bottom: -15px;
+    margin-left: 15%;
+    margin-bottom: -2%;
     font-weight: bold;
 }
 .input {
     background-color: #f0eb8d;
-    height: 50px;
-    margin-left: 70px;
-    margin-right: 70px;
+    min-height: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
     border-radius: 10px; 
     font-weight: bold;   
-}
-
-#submit {
-    margin-top: 10px;
 }
 
 #log-in {
@@ -82,9 +77,9 @@ h2 {
 }
 
 .button {
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 35px;
     border-radius: 15px;
     background-color: #413543;
     color: white;
@@ -93,11 +88,10 @@ h2 {
 .button:hover {
     background-color: #524654;
     cursor: pointer;
-    line-height: 100%;
 }
 
 #error {
-    margin-top: 20px;
+    margin-top: 3%;
     color: #ff4444;
     background-color: #f0eb8d;
     
