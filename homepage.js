@@ -7,23 +7,33 @@ const logoContainer = document.getElementById("logo-container");
 
 console.log(button1);
 window.onload=function(){
-    button1.addEventListener('click' ,moveToCorner);
-    logoContainer.addEventListener("animationend", function() {
-		document.location.href = "login.php";
-    });
-    button2.addEventListener('click' ,moveToCorner);
-    logoContainer.addEventListener("animationend", function() {
-		document.location.href = "createAccount.php";
-    });
+    button1.addEventListener('click' ,moveToCornerLogin); 
+    button2.addEventListener('click' ,moveToCornerCreate);
+    
 }
 
-function moveToCorner(){
+function moveToCornerLogin(){
     //Setting logo to the top left
     logo.style.position = 'fixed';
     logo.style.left = 0;
     logo.style.top = 0;
     logoContainer.className = "upperLogo";
     removeHomeElements();
+    logoContainer.addEventListener("animationend", function() {
+		document.location.href = "login.php";
+    });
+}
+
+function moveToCornerCreate(){
+    //Setting logo to the top left
+    logo.style.position = 'fixed';
+    logo.style.left = 0;
+    logo.style.top = 0;
+    logoContainer.className = "upperLogo";
+    removeHomeElements();
+    logoContainer.addEventListener("animationend", function() {
+		document.location.href = "createAccount.php";
+    });
 }
 
 function removeHomeElements(){

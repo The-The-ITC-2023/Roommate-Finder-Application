@@ -6,20 +6,26 @@
 </head>
 
 <body>
-    <img src="ITCLogoOutline.png" id="logo">
-    <form method="post">
-        First Name:<br>
-        <input type="text" name="fname"><br>
-        Last Name:<br>
-        <input type="text" name="lname"><br>
-        Email:<br>
-        <input type="email" name="email"><br>
-        Password:<br>
-        <input type="password" name="password"><br>
-        Confirm Password:<br>
-        <input type="password" name="cpassword"><br>
-        <input type="submit" name="submit" value="Submit" id="submit" onclick="changeP()">
-    </form>
+    <a href="home.html"><img src="ITCLogoOutline.png" id="logo"></a>
+    <div class=login-form>
+        <h1>Create Account</h1>
+        <form id="form" method="post">
+            <p class="title">First Name:</p><br>
+            <input type="text" name="fname" class="input" placeholder=" Ex: John"><br>
+            <p class="title">Last Name:</p><br>
+            <input type="text" name="lname" class="input" placeholder=" Ex: Doe"><br>
+            <p class="title">Email:</p><br>
+            <input type="email" name="email" class="input" placeholder=" Ex: JohnDoe@gmail.com"><br>
+            <p class="title">Password: (Minimum 8 characters with at least 1 capital letter, 1 lowercase letter, and 1 number)</p><br>
+            <input type="password" name="password" class="input" placeholder=" Enter Password..."><br>
+            <p class="title">Confirm Password:</p><br>
+            <input type="password" name="cpassword" class="input" placeholder=" Confirm Password..."><br>
+            <input type="submit" name="submit" value="Create Account" id="submit" onclick="changeP()" class = "button">
+            <h2>Already have an account?</h2>
+            <a id="log-in" href="login.php" class = "button">Log In</a>
+            <div id="error">Error: You Get No Bitches</div>
+        </form>
+    </div>
 </body>
 
 </html>

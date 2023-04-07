@@ -24,7 +24,7 @@ body {
 h1 {
     color: whitesmoke;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 200px;
     margin-bottom: 10px;
 }
 
@@ -54,6 +54,7 @@ h2 {
     text-justify: auto;
     margin: auto;
     padding: 5px;
+    margin-bottom: 5px;
 }
 
 .button:hover {
