@@ -262,13 +262,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php if (!empty($gender_)) {
-        echo "<a href='home.html'>";
-    } ?>
     <img src="ITCLogoOutline.png" class="logo">
-    <?php if (!is_null($gender_)) {
-        echo "</a>";
-    } ?>
     <hr>
 
     <div class="form">

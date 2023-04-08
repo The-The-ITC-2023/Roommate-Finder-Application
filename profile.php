@@ -38,7 +38,7 @@ if (isset($_SESSION["currentID"])) {
         </div>
     </div> -->
 
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <img src="ITCLogoOutline.png" class="logo">
     <hr />
     <div class="parent">
         <div class="topleft">

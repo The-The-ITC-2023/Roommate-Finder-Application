@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
 
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <img src="ITCLogoOutline.png" class="logo">
 
     <hr> 
 
