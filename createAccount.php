@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt5->execute();
 
 
-            header("Location: home.html");
+            header("Location: moreInfo.php");
         }
     }
 }

@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<td>", $row['gender'], "</td>";
         echo "<td>", $row['university'], "</td>";
         echo "<td>", $row['email'], "</td>";
-        echo "<td>", $similarityValue, "</td>";
+        echo "<td>", $similarityValue . "%", "</td>";
         echo "</tr>";
     }
     echo "</table>";
