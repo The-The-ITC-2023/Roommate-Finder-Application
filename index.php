@@ -38,7 +38,8 @@ if (isset($_SESSION["currentID"])) {
     <div class="parent">
         <a href="search.php"><button class="topleft searchButton">Search</button> </a>
         <div class="topright">
-            <a href="moreInfo.php"><button class="acctButton">Edit Account</button></a> <a href="home.html"><button class="acctButton">Sign Out</button></a>
+            <a href="moreInfo.php"><button class="acctButton">Edit Account</button></a>
+            <a href="home.html"><button class="acctButton">Sign Out</button></a>
         </div>
         <div class="greeting">
             <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
