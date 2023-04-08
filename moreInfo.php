@@ -276,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+<?php if (!empty($gender_)) {echo "<a href='home.html'>";} ?> <img src="ITCLogoOutline.png" class="logo"><?php if (!is_null($gender_)) {echo "</a>";} ?>
     <div class="form">
         <h1>Tell us about Yourself!</h1>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
