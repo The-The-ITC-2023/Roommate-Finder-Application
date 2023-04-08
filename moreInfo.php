@@ -2,6 +2,38 @@
 
 session_start();
 
+$gender_ = $description_ = $university_ = $major_ = null;
+$clean_ = $smoke_ = $drugs_ = $loud_ = $weekdaySleep_ = $weekendSleep_ = $petPreference_ = null;
+
+if (isset($_SESSION["currentID"])) {
+    $mysqli = require __DIR__ . "/database.php";
+
+    $sql = "SELECT * FROM account WHERE id = {$_SESSION["currentID"]}";
+    $result1 = $mysqli->query($sql);
+    $user = $result1->fetch_assoc();
+
+    $sql = "SELECT * FROM preference WHERE acct_id = {$_SESSION["currentID"]}";
+    $result2 = $mysqli->query($sql);
+    $userPreferences = $result2->fetch_assoc();
+
+   
+
+    $gender_ = $user["gender"];
+    $description_ = $user["bio"];
+    $university_ = $user["university"];
+    $major_ = $user["major"];
+
+    $clean_ = $userPreferences["clean"];
+    $smoke_ = $userPreferences["smoke"];
+    $drugs_ = $userPreferences["drugs"];
+    $loud_ = $userPreferences["loud"];
+    $weekdaySleep_ = $userPreferences["weekdaySleep"];
+    $weekendSleep_ = $userPreferences["weekendSleep"];
+    $petPreference_ = $userPreferences["petPreference"];
+
+    
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["submit"])) {
@@ -16,16 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $weekendSleep = null;
         $noise = null;
         $petPreference = null;
-        $pfp = null;
         $valid = true;
 
-        if (isset($_POST["pfp"])) {
-            $pfp = $_POST['pfp'];
-        } else {
-            $pfpErr = "Please upload a profile picture<br>";
-            echo $pfpErr;
-            $valid = false;
-        }
         if (isset($_POST["gender"])) {
             $gender = $_POST['gender'];
         } else {
@@ -34,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $valid = false;
         }
 
-        if (empty($_POST["desc"])) {
+        if (empty($_POST["desc"]    )) {
             $descErr = "Please write a description about yourself<br>";
             echo "{$descErr}";
             $valid = false;
@@ -252,110 +276,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <img src="ITCLogoOutline.png" class="logo">
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
     <div class="form">
         <h1>Tell us about Yourself!</h1>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
 
-            <div class="profilePic">
-                <label for="pfp">Profile Picture</label><br>
-                <input type="file" name="pfp" id="file" placeholder="Photo" required="" capture><br>
-            </div>
             <div class="gender-container">
                 <label id="gender" for="gender">Gender</label><br>
                 <div class="spacer"></div>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="female" class="gender" required>Female <br>
+                <input <?php if (!(is_null($gender_)) && $gender_ == "female") {echo 'checked'; }?> class="midsized" type="radio" name="gender" value="female" class="gender">Female <br>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="male" class="gender" required>Male <br>
+                <input <?php if (!(is_null($gender_)) && $gender_ == "male") {echo 'checked'; }?> class="midsized" type="radio" name="gender" value="male" class="gender">Male <br>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="other" class="gender" required>Other <br>
+                <input <?php if (!(is_null($gender_)) && $gender_ == "other") {echo 'checked'; }?> class="midsized" type="radio" name="gender" value="other" class="gender">Other <br>
             </div>
-            <div class="description-container">
-                Description: Short bio (hobbies, reason for rooming, etc.) <br>
-                <textarea class="midsized" name="desc" id="desc" cols="30" rows="10" required></textarea> <br>
-            </div>
-            <!--<p class="midsized form-background">University</p> <br>
-            <input class="midsized" type="text" name="university"> <br>-->
-            <!-- <div class="wrapper">
-                <div class="select-btn">
-                    <span>Select University</span>
-                    <i class="uil uil-angle-down">^</i>
-                </div>
-                <div class="content">
-                    <div class="search">
-                        <i class="uil uil-search"></i>
-                        <input spellcheck="false" type="text" placeholder="Search">
-                    </div>
-                    <ul class="options"></ul>
-                </div>
-            </div> -->
+
+            Description: Short bio (hobbies, reason for rooming, etc.) <br>
+            <textarea class="midsized" name="desc" id="desc" cols="30" rows="10"><?php if (!(is_null($description_))) {echo "{$description_}";} ?></textarea> <br>
+            
             <p class="midsized form-background">University</p> <br>
-            <input class="midsized" type="text" name="university" required> <br>
+            <input class="midsized" type="text" name="university" <?php if (!(is_null($university_))) {echo "value='{$university_}'>";} ?>> <br>
+
             <p class="midsized form-background">Major</p> <br>
-            <input class="midsized" type="text" name="major" required> <br>
+            <input class="midsized" type="text" name="major" <?php if (!(is_null($major_))) {echo "value='{$major_}'>";} ?>> <br>
+
             <div class="preferences-container">
                 <label for="clean">How clean are you?</label><br>
-                <select name="clean" id="clean" required>
+                <select name="clean" id="clean">
                     <option value="">Select Option</option>
-                    <option value="messy">Messy</option>
-                    <option value="semi messy">Semi messy</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="semi neat">Semi neat</option>
-                    <option value="neat">Neat</option>
+                    <option value="messy" <?php if (!(is_null($clean_)) && $clean_ == "messy") {echo 'selected';}?> >Messy</option>
+                    <option value="semi messy" <?php if (!(is_null($clean_)) && $clean_ == "semi messy") {echo 'selected';}?> >Semi messy</option>
+                    <option value="neutral" <?php if (!(is_null($clean_)) && $clean_ == "neutral") {echo 'selected';}?> >Neutral</option>
+                    <option value="semi neat" <?php if (!(is_null($clean_)) && $clean_ == "semi neat") {echo 'selected';}?> >Semi neat</option>
+                    <option value="neat" <?php if (!(is_null($clean_)) && $clean_ == "neat") {echo 'selected';}?> >Neat</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="smoking">Are you okay with smoking?</label><br>
-                <select name="smoking" id="smoking" required>
+                <select name="smoking" id="smoking">
                     <option value="">Select Option</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option value="Yes" <?php if (!(is_null($smoke_)) && $smoke_ == "Yes") {echo 'selected';}?> >Yes</option>
+                    <option value="No" <?php if (!(is_null($smoke_)) && $smoke_ == "No") {echo 'selected';}?> >No</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="drugs">Are you okay around drugs?</label><br>
-                <select name="drugs" id="drugs" required>
+                <select name="drugs" id="drugs">
                     <option value="">Select Option</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option value="Yes" <?php if (!(is_null($drugs_)) && $drugs_ == "Yes") {echo 'selected';}?> >Yes</option>
+                    <option value="No" <?php if (!(is_null($drugs_)) && $drugs_ == "No") {echo 'selected';}?> >No</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="sleep">On weekdays, at what times do you typically go to sleep?</label><br>
-                <select name="weekdaySleep" id="sleep" required>
+                <select name="weekdaySleep" id="sleep">
                     <option value="">Select Option</option>
-                    <option value="8-10">8pm - 10pm</option>
-                    <option value="10-12">10pm - Midnight</option>
-                    <option value="12+">Past Midnight</option>
+                    <option value="8-10" <?php if (!(is_null($weekdaySleep_)) && $weekdaySleep_ == "8-10") {echo 'selected';}?> >8pm - 10pm</option>
+                    <option value="10-12" <?php if (!(is_null($weekdaySleep_)) && $weekdaySleep_ == "10-12") {echo 'selected';}?> >10pm - Midnight</option>
+                    <option value="12+" <?php if (!(is_null($weekdaySleep_)) && $weekdaySleep_ == "12+") {echo 'selected';}?> >Past Midnight</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="sleep">On weekends, at what times do you typically go to sleep?</label><br>
-                <select name="weekendSleep" id="sleep" required>
+                <select name="weekendSleep" id="sleep">
                     <option value="">Select Option</option>
-                    <option value="8-10">8pm - 10pm</option>
-                    <option value="10-12">10pm - Midnight</option>
-                    <option value="12+">Past Midnight</option>
+                    <option value="8-10" <?php if (!(is_null($weekendSleep_)) && $weekendSleep_ == "8-10") {echo 'selected';}?> >8pm - 10pm</option>
+                    <option value="10-12" <?php if (!(is_null($weekendSleep_)) && $weekendSleep_ == "10-12") {echo 'selected';}?> >10pm - Midnight</option>
+                    <option value="12+" <?php if (!(is_null($weekendSleep_)) && $weekendSleep_ == "12+") {echo 'selected';}?> >Past Midnight</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="noise">How loud/quiet would you like your environment to be?</label><br>
-                <select name="noise" id="noise" required>
+                <select name="noise" id="noise">
                     <option value="">Select Option</option>
-                    <option value="very loud">Very loud</option>
-                    <option value="loud">Loud</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="quiet">Quiet</option>
-                    <option value="silent">Silent</option>
+                    <option value="very loud" <?php if (!(is_null($loud_)) && $loud_ == "very loud") {echo 'selected';}?> >Very loud</option>
+                    <option value="loud" <?php if (!(is_null($loud_)) && $loud_ == "loud") {echo 'selected';}?> >Loud</option>
+                    <option value="neutral" <?php if (!(is_null($loud_)) && $loud_ == "neutral") {echo 'selected';}?> >Neutral</option>
+                    <option value="quiet" <?php if (!(is_null($loud_)) && $loud_ == "quiet") {echo 'selected';}?> >Quiet</option>
+                    <option value="silent" <?php if (!(is_null($loud_)) && $loud_ == "silent") {echo 'selected';}?> >Silent</option>
                 </select>
             </div>
             <div class="preferences-container">
                 <label for="pets">Are you comfortable with having pets?</label><br>
-                <select name="pets" id="pets" required>
+                <select name="pets" id="pets">
                     <option value="">Select Option</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option value="Yes" <?php if (!(is_null($petPreference_)) && $petPreference_ == "Yes") {echo 'selected';}?> >Yes</option>
+                    <option value="No" <?php if (!(is_null($petPreference_)) && $petPreference_ == "No") {echo 'selected';}?> >No</option>
                 </select>
             </div>
             <input type="submit" name="submit" value="Submit" class="button submit">
