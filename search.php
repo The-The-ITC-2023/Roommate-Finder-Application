@@ -88,6 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    
     <div class="form">
         <form action="search.php" method="post">
             University:

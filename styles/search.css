@@ -44,6 +44,7 @@ th {
     width: 80%;
     margin: auto;
     border-collapse: collapse;
+    margin-top: 3%;
 }
 
 .spacer {
@@ -68,4 +69,12 @@ form
     margin-right: auto;
     margin-top: 2%;
     text-align: left;
+}
+
+.logo{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: auto;
+    width: 7%;
 }
