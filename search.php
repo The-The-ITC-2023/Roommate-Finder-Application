@@ -95,7 +95,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <div id = 'nav' class='sticky'>
+        <a href="home.html"><img src="ITCLogoOutline.png" class="logo fixed"></a>
+        <hr class="" />
+    </div>
 
     <div class="topright">
         <a href="index.php"><button class="acctButton">Back</button></a>
@@ -113,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     echo $stmt3;
                 } ?>
             </select>
-            <input type="submit" value="submit" />
+            <input type="submit" value="Submit" />
         </form>
     </div>
 

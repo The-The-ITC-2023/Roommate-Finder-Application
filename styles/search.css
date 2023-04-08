@@ -83,9 +83,21 @@ form
     margin-top: 2%;
     text-align: left;
 }
+.sticky {
+    position: sticky;
+}
+
+.fixed {
+    position: fixed;
+}
+
+hr {
+    position: fixed;
+    top: 10%;
+    width: 100%;
+}
 
 .logo{
-    position: fixed;
     left: 0px;
     top: 0px;
     height: auto;

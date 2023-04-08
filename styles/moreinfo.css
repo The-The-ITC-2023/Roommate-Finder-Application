@@ -40,7 +40,7 @@
     margin: auto;
     margin-left: 35%;
     margin-right: 35%;
-    margin-top: 0px;
+    margin-top: 1%;
     margin-bottom: 10%;
     border-radius: 1%;
     padding: 2%;
@@ -157,7 +157,9 @@ textarea {
     resize:none;
 }
 
-
+hr {
+   margin-top: 0.5%;
+}
 /*New*/
 
 .wrapper{

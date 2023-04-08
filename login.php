@@ -57,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
 
+    <hr> 
+
     <div class=login-form>
         <h1>Log in</h1>
         <div id="error" class="error">
