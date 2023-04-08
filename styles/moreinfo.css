@@ -151,7 +151,10 @@ p {
 }
 
 textarea {
-    resize: none;
+    width: 80%;
+    height: auto;
+    max-height: 100%;
+    resize:none;
 }
 
 
