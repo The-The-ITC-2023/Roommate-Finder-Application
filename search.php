@@ -53,10 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $result2 = $mysqli->query($stmt2);
         $foundUser = $result2->fetch_assoc();
 
-        print($foundUser['acct_id']);
-        foreach ($foundUser as $item) {
-            print $item;
-        }
+        $sum = abs($currentUser['clean'] - $foundUser['clean']) / 2;
+        $sum = $sum + abs($currentUser['smoke'] - $foundUser['smoke']) / 2;
+        $sum = $sum + abs($currentUser['drugs'] - $foundUser['drugs']) / 2;
+        $sum = $sum + abs($currentUser['loud'] - $foundUser['loud']) / 2;
+        $sum = $sum + abs($currentUser['weekdaySleep'] - $foundUser['weekdaySleep']) / 2;
+        $sum = $sum + abs($currentUser['weekendSleep'] - $foundUser['weekendSleep']) / 2;
+        $sum = $sum + abs($currentUser['petPreference'] - $foundUser['petPreference']) / 2;
+
+        $similarityValue = ceil(100 - ($sum / 7) * 4);
         echo "<br>";
 
         echo "<tr>";
@@ -64,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<td>", $row['gender'], "</td>";
         echo "<td>", $row['university'], "</td>";
         echo "<td>", $row['email'], "</td>";
-        echo "<td>", $foundUserID, "</td>";
+        echo "<td>", $similarityValue, "</td>";
         echo "</tr>";
     }
     echo "</table>";
