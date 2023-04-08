@@ -19,10 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pfp = null;
         $valid = true;
 
-        if(isset($_POST["pfp"])) {
+        if (isset($_POST["pfp"])) {
             $pfp = $_POST['pfp'];
-        }
-        else {
+        } else {
             $pfpErr = "Please upload a profile picture<br>";
             echo $pfpErr;
             $valid = false;
@@ -276,21 +275,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Description: Short bio (hobbies, reason for rooming, etc.) <br>
                 <textarea class="midsized" name="desc" id="desc" cols="30" rows="10" required></textarea> <br>
             </div>
-             <!--<p class="midsized form-background">University</p> <br>
+            <!--<p class="midsized form-background">University</p> <br>
             <input class="midsized" type="text" name="university"> <br>-->
-            <div class="wrapper">
+            <!-- <div class="wrapper">
                 <div class="select-btn">
                     <span>Select University</span>
                     <i class="uil uil-angle-down">^</i>
                 </div>
                 <div class="content">
-                <div class="search">
-                    <i class="uil uil-search"></i>
-                    <input spellcheck="false" type="text" placeholder="Search">
+                    <div class="search">
+                        <i class="uil uil-search"></i>
+                        <input spellcheck="false" type="text" placeholder="Search">
+                    </div>
+                    <ul class="options"></ul>
                 </div>
-                <ul class="options"></ul>
-                </div>
-            </div>
+            </div> -->
             <p class="midsized form-background">University</p> <br>
             <input class="midsized" type="text" name="university" required> <br>
             <p class="midsized form-background">Major</p> <br>
@@ -363,7 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <script src="moreInfo.js"></script>
+    <!-- <script src="moreInfo.js"></script> -->
 </body>
 
 </html>
