@@ -17,16 +17,6 @@ if (isset($_SESSION["currentID"])) {
 
     $unique = array_unique($universityArray);
     // end
-
-    // echo "<form action='search.php' method='post'>";
-    // echo "<select name='university'>";
-    // echo "<option value = ''>Select University</option>";
-    // foreach ($unique as $item) {
-    //     $stmt3 = sprintf("<option value='%s'>%s</option>", $item, $item);
-    //     echo $stmt3;
-    // }
-    // echo "</select>";
-    // echo "</form>";
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -36,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //$name = $_POST["firstName"];
     $university = $_POST["university"];
 
-    $stmt = "SELECT * FROM account WHERE university = '{$university}'";
+    $stmt = "SELECT * FROM account WHERE university = '{$university}' AND NOT id = '{$_SESSION["currentID"]}'";
+
     //mysqli_stmt_bind_param($stmt, 's', $name);
 
     $result = $mysqli->query($stmt);
@@ -44,22 +35,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // $user = $result->fetch_assoc();
 
     //init header row
-    echo "<table border='1px solid black'>";
+    echo "<table border='1px solid black' class='fetch-results'>";
     echo "<tr>";
     echo "<th>Name</th><th>Gender</th><th>University</th><th>Email</th><th>Similarity</th>";
     echo "</tr>";
 
+    // returns array of preference values
+    $stmt2 = sprintf("SELECT *  FROM preferenceValues WHERE acct_id = '{$_SESSION["currentID"]}'");
+    $result2 = $mysqli->query($stmt2);
+    $currentUser = $result2->fetch_assoc();
+
     //populate table
     while ($row = $result->fetch_assoc()) {
+
+        $foundUserID = $row['id'];
+        $stmt2 = sprintf("SELECT *  FROM preferenceValues WHERE acct_id = '{$foundUserID}'");
+        $result2 = $mysqli->query($stmt2);
+        $foundUser = $result2->fetch_assoc();
+
+        // print($foundUser['acct_id']);
+        // foreach ($foundUser as $item) {
+        //     print $item;
+        // }
+        // echo "<br>";
+
         echo "<tr>";
         echo "<td>", $row['firstName'], " ", $row['lastName'], "</td>";
         echo "<td>", $row['gender'], "</td>";
         echo "<td>", $row['university'], "</td>";
         echo "<td>", $row['email'], "</td>";
-        echo "<td>", 0, "</td>";
+        echo "<td>", $foundUserID, "</td>";
         echo "</tr>";
     }
     echo "</table>";
+
+    // print($currentUser['clean']);
+    // print($foundUser['clean']);
 } // end if
 
 ?>
