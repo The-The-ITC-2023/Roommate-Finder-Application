@@ -4,17 +4,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $mysqli = require __DIR__ . "/database.php";
 
-    $sql = sprintf("SELECT * FROM account WHERE firstName = '%s'", $_POST["firstName"]);
+    $sql = sprintf("SELECT email FROM account WHERE firstName = '%s'", $_POST["firstName"]);
 
     if ($stmt = $mysqli->prepare($sql)) {
-        echo "Hi ", $_POST["firstName"], "! Your email is: <br />";
+        //echo "Hi ", $_POST["firstName"], "! Your email is: <br />";
+        echo "Your results: <br />";
 
         //execute statement /
         $stmt->execute();
 
         // bind result variables /
         $stmt->bind_result($email);
-
+        
         // fetch values /
         while ($stmt->fetch()) {
             echo $email;
