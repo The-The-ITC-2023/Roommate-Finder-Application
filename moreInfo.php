@@ -247,6 +247,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
     <div class="form">
         <h1>Tell us about Yourself!</h1>
+        <div id="error">Error: The Following Fields are Required:</div>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
 
             <div class="gender-container">
@@ -259,9 +260,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="spacer"></div>
                 <input class="midsized" type="radio" name="gender" value="other" class="gender">Other <br>
             </div>
-
-            Description: Short bio (hobbies, reason for rooming, etc.) <br>
-            <textarea class="midsized" name="desc" id="desc" cols="30" rows="10"></textarea> <br>
+            <div class="description-container">
+                Description: Short bio (hobbies, reason for rooming, etc.) <br>
+                <textarea class="midsized" name="desc" id="desc" cols="30" rows="10"></textarea> <br>
+            </div>
             <p class="midsized form-background">University</p> <br>
             <input class="midsized" type="text" name="university"> <br>
             <p class="midsized form-background">Major</p> <br>

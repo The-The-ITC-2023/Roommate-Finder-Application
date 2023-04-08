@@ -47,6 +47,15 @@ h2 {
     width: 7%;
 }
 
+#logo{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width:50%;
+    height: auto;
+    background: none;
+}
+
 
 
 .login-form {

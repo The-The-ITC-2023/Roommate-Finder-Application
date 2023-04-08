@@ -52,6 +52,15 @@ h1 {
     font-family: 'nexaheavy';
     text-align: center;
     margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+#error {
+    color: red;
+    font-size: 15px;
+    background-color: #E5E8E4;
+    margin-bottom: 5%;
+
 }
 
 #form {
@@ -103,6 +112,10 @@ label{
 .spacer {
     padding:1%;
     background-color:#E5E8E4;
+}
+
+.description-container {
+    background-color: #E5E8E4;
 }
 
 .preferences-container {
