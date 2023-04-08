@@ -86,21 +86,41 @@ body {
 }
 
 .bioDiv {
-    background-color: #E5E8E4;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height:55%;
+
+    background-color: #E5E8E4;
     width:30%;
+    height:55%;
+    min-width: 30%;
     margin-left: 10%;
     margin-top:8%;
     border-radius: 1%;
     padding: 2%;
     position:relative;
     float:left;
+    overflow: hidden;
 }
 
-.bioHeader {
+.preferenceDiv {
+    display: flex;
+    flex-direction: column;
+
+    background-color: hsl(105, 8%, 90%);
+    width: 20%;
+    height: 55%;
+    min-height: 65%;
+    margin-right: 20%;
+    margin-top:8%;
+    float:right;
+    border-radius: 1%;
+    padding: 2%;
+    position:relative;
+    overflow: hidden;
+}
+
+.divHeader {
     margin:auto;
     margin-top:4%;
     font-family: 'nexaheavy';
@@ -125,22 +145,6 @@ body {
     font-weight: bold;
 }
 
-.preferenceDiv {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    background-color: hsl(105, 8%, 90%);
-    width: 15%;
-    height: 60%;
-    margin-right: 20%;
-    margin-top:8%;
-    float:right;
-    border-radius: 1%;
-    padding: 2%;
-    position:relative;
-}
-
 .innerFlex {
     justify-content: space-between;
     /*flex:50%; */
@@ -150,7 +154,6 @@ body {
     background-color: hsl(105, 8%, 90%);
     /*float:left; */
     justify-content: center;
-
 
 }
 
@@ -192,4 +195,8 @@ h1 {
     margin-top: 0;
     margin-bottom: 0;
     position:relative;
+}
+
+.bottom {
+    margin-bottom: 1%;
 }

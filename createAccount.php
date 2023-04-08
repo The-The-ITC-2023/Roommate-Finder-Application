@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <a href="home.html"><img src="ITCLogoOutline.png" id="logo"></a>
+    <img src="ITCLogoOutline.png" id="logo">
     <hr>
     <div class=login-form>
         <h1>Create Account</h1>

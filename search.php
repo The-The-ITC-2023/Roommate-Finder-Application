@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo fixed"></a>
+    <img src="ITCLogoOutline.png" class="logo fixed">
 
     <div class="topright">
         <a href="index.php"><button class="acctButton">Back</button></a>

@@ -36,7 +36,7 @@ if (isset($_SESSION["currentID"])) {
         </div>
     </div> -->
 
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <img src="ITCLogoOutline.png" class="logo">
     <hr />
     <div class="parent">
         <div class="topleft">
@@ -51,7 +51,7 @@ if (isset($_SESSION["currentID"])) {
         </div>
 
         <div class="bioDiv">
-            <h1 class="bioHeader">Your Biography</h1>
+            <h1 class="divHeader">Your Biography</h1>
             <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?=$user["bio"] ?></textarea>
 
 
@@ -61,16 +61,14 @@ if (isset($_SESSION["currentID"])) {
 
         <div class="preferenceDiv">
             <div class = "innerFlex">
-            <h1>Your Preferences</h1>
+            <h1 class="divHeader">Your Preferences</h1>
             <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
             <div class="preferenceBox">Pets:  <?= $userPreferences["petPreference"] ?></div>
             <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>
             <div class="preferenceBox">Drugs: <?= $userPreferences["drugs"] ?></div>
             <div class="preferenceBox">Weekday Sleep: <?= $userPreferences["weekdaySleep"] ?></div>
             <div class="preferenceBox">Weekend Sleep: <?= $userPreferences["weekendSleep"] ?></div>
-            <div class="preferenceBox">Noise: <?=$userPreferences["loud"] ?></div>
-            
-
+            <div class="preferenceBox bottom">Noise: <?=$userPreferences["loud"] ?></div>
         </div>
 
     </div>
