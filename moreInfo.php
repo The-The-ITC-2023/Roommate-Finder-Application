@@ -16,8 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $weekendSleep = null;
         $noise = null;
         $petPreference = null;
+        $pfp = null;
         $valid = true;
 
+        if(isset($_POST["pfp"])) {
+            $pfp = $_POST['pfp'];
+        }
+        else {
+            $pfpErr = "Please upload a profile picture<br>";
+            echo $pfpErr;
+            $valid = false;
+        }
         if (isset($_POST["gender"])) {
             $gender = $_POST['gender'];
         } else {
