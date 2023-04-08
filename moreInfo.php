@@ -247,30 +247,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
     <div class="form">
         <h1>Tell us about Yourself!</h1>
-        <div id="error">Error: The Following Fields are Required:</div>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
 
             <div class="gender-container">
                 <label id="gender" for="gender">Gender</label><br>
                 <div class="spacer"></div>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="female" class="gender">Female <br>
+                <input class="midsized" type="radio" name="gender" value="female" class="gender" required>Female <br>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="male" class="gender">Male <br>
+                <input class="midsized" type="radio" name="gender" value="male" class="gender" required>Male <br>
                 <div class="spacer"></div>
-                <input class="midsized" type="radio" name="gender" value="other" class="gender">Other <br>
+                <input class="midsized" type="radio" name="gender" value="other" class="gender" required>Other <br>
             </div>
             <div class="description-container">
                 Description: Short bio (hobbies, reason for rooming, etc.) <br>
-                <textarea class="midsized" name="desc" id="desc" cols="30" rows="10"></textarea> <br>
+                <textarea class="midsized" name="desc" id="desc" cols="30" rows="10" required></textarea> <br>
             </div>
             <p class="midsized form-background">University</p> <br>
-            <input class="midsized" type="text" name="university"> <br>
+            <input class="midsized" type="text" name="university" required> <br>
             <p class="midsized form-background">Major</p> <br>
-            <input class="midsized" type="text" name="major"> <br>
+            <input class="midsized" type="text" name="major" required> <br>
             <div class="preferences-container">
                 <label for="clean">How clean are you?</label><br>
-                <select name="clean" id="clean">
+                <select name="clean" id="clean" required>
                     <option value="">Select Option</option>
                     <option value="messy">Messy</option>
                     <option value="semi messy">Semi messy</option>
@@ -281,7 +280,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="smoking">Are you okay with smoking?</label><br>
-                <select name="smoking" id="smoking">
+                <select name="smoking" id="smoking" required>
                     <option value="">Select Option</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -289,7 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="drugs">Are you okay around drugs?</label><br>
-                <select name="drugs" id="drugs">
+                <select name="drugs" id="drugs" required>
                     <option value="">Select Option</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -297,7 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="sleep">On weekdays, at what times do you typically go to sleep?</label><br>
-                <select name="weekdaySleep" id="sleep">
+                <select name="weekdaySleep" id="sleep" required>
                     <option value="">Select Option</option>
                     <option value="8-10">8pm - 10pm</option>
                     <option value="10-12">10pm - Midnight</option>
@@ -306,7 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="sleep">On weekends, at what times do you typically go to sleep?</label><br>
-                <select name="weekendSleep" id="sleep">
+                <select name="weekendSleep" id="sleep" required>
                     <option value="">Select Option</option>
                     <option value="8-10">8pm - 10pm</option>
                     <option value="10-12">10pm - Midnight</option>
@@ -315,7 +314,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="noise">How loud/quiet would you like your environment to be?</label><br>
-                <select name="noise" id="noise">
+                <select name="noise" id="noise" required>
                     <option value="">Select Option</option>
                     <option value="very loud">Very loud</option>
                     <option value="loud">Loud</option>
@@ -326,7 +325,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="preferences-container">
                 <label for="pets">Are you comfortable with having pets?</label><br>
-                <select name="pets" id="pets">
+                <select name="pets" id="pets" required>
                     <option value="">Select Option</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
