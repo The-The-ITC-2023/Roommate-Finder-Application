@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // $user = $result->fetch_assoc();
 
     //init header row
-    echo "<table border='1px solid black' class='fetch-results'>";
+    echo "<table class='fetch-results'>";
     echo "<tr>";
     echo "<th>Name</th><th>Gender</th><th>University</th><th>Email</th><th>Similarity</th>";
     echo "</tr>";
@@ -53,11 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $result2 = $mysqli->query($stmt2);
         $foundUser = $result2->fetch_assoc();
 
-        // print($foundUser['acct_id']);
-        // foreach ($foundUser as $item) {
-        //     print $item;
-        // }
-        // echo "<br>";
+        print($foundUser['acct_id']);
+        foreach ($foundUser as $item) {
+            print $item;
+        }
+        echo "<br>";
 
         echo "<tr>";
         echo "<td>", $row['firstName'], " ", $row['lastName'], "</td>";
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <title>Search</title>
-    <!-- <link rel="stylesheet" href="styles/search.css" /> -->
+    <link rel="stylesheet" href="styles/search.css" />
 </head>
 
 <body>
