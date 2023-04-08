@@ -1,54 +1,88 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION["currentID"])) {
+
+    $mysqli = require __DIR__ . "/database.php";
+
+    // finds unique universities
+    $stmt2 = sprintf("SELECT *  FROM account");
+    $result = $mysqli->query($stmt2);
+
+    $universityArray = [];
+    while ($row = $result->fetch_assoc()) {
+        array_push($universityArray, $row['university']);
+    }
+
+    $unique = array_unique($universityArray);
+    // end
+
+    // echo "<form action='search.php' method='post'>";
+    // echo "<select name='university'>";
+    // echo "<option value = ''>Select University</option>";
+    // foreach ($unique as $item) {
+    //     $stmt3 = sprintf("<option value='%s'>%s</option>", $item, $item);
+    //     echo $stmt3;
+    // }
+    // echo "</select>";
+    // echo "</form>";
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $mysqli = require __DIR__ . "/database.php";
 
-    $sql = sprintf("SELECT email FROM account WHERE firstName = '%s'", $_POST["firstName"]);
+    //$name = $_POST["firstName"];
+    $university = $_POST["university"];
 
-    if ($stmt = $mysqli->prepare($sql)) {
-        //echo "Hi ", $_POST["firstName"], "! Your email is: <br />";
-        echo "Your results: <br />";
+    $stmt = "SELECT * FROM account WHERE university = '{$university}'";
+    //mysqli_stmt_bind_param($stmt, 's', $name);
 
-        //execute statement /
-        $stmt->execute();
+    $result = $mysqli->query($stmt);
 
-        // bind result variables /
-        $stmt->bind_result($email);
-        
-        // fetch values /
-        while ($stmt->fetch()) {
-            echo $email;
-            echo "<br />";
-        }
+    // $user = $result->fetch_assoc();
 
-        /* close statement*/
-        $stmt->close();
+    //init header row
+    echo "<table border='1px solid black'>";
+    echo "<tr>";
+    echo "<th>Name</th><th>Gender</th><th>University</th><th>Email</th><th>Similarity</th>";
+    echo "</tr>";
+
+    //populate table
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>", $row['firstName'], " ", $row['lastName'], "</td>";
+        echo "<td>", $row['gender'], "</td>";
+        echo "<td>", $row['university'], "</td>";
+        echo "<td>", $row['email'], "</td>";
+        echo "<td>", 0, "</td>";
+        echo "</tr>";
     }
+    echo "</table>";
+} // end if
 
-    
-/*
-    session_start();
-
-    $_SESSION["currentID"] = $user["id"];
-
-    header("Location: index.php");
-    exit; 
-*/
-}
 ?>
 
 <html>
 
 <head>
     <title>Search</title>
+    <!-- <link rel="stylesheet" href="styles/search.css" /> -->
 </head>
 
 <body>
-    <form method="post">
-        <label for="firstName">First Name:</label> <br />
-        <input type="text" id="firstName" name="firstName" /><br />
+    <form action="search.php" method="post">
+        University:
         <br />
+        <select name='university'>
+            <option value=''>Select University</option>
+            <?php
+            foreach ($unique as $item) {
+                $stmt3 = sprintf("<option value='%s'>%s</option>", $item, $item);
+                echo $stmt3;
+            } ?>
+        </select>
         <input type="submit" value="submit" />
     </form>
 </body>

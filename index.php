@@ -17,11 +17,35 @@ if (isset($_SESSION["currentID"])) {
 
 <head>
     <title>User</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-    <p>Hello <?= $user["firstName"] ?>!</p>
-    <p>Your email is <?= $user["email"] ?></p>
+    <!-- <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <hr />
+    <div class="parent">
+        <a href="search.php"><button class="topleft searchButton">Search</button> </a>
+        <div class="topright">
+            <a href="moreInfo.php"><button class="acctButton">Edit Account</button></a> <a href="home.html"><button class="acctButton">Sign Out</button></a>
+        </div>
+        <div class="greeting">
+            <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
+        </div>
+    </div> -->
+
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <hr />
+    <div class="parent">
+        <a href="search.php"><button class="topleft searchButton">Search</button> </a>
+        <div class="topright">
+            <a href="moreInfo.php"><button class="acctButton">Edit Account</button></a>
+            <a href="home.html"><button class="acctButton">Sign Out</button></a>
+        </div>
+        <div class="greeting">
+            <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
+        </div>
+
+    </div>
 </body>
 
 </html>

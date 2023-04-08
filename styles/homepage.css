@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    font-family: 'nexaextra_light';
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+}
+
+#logo{
+    width: 25%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+h2 {
+    margin-top: -100px;
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#button2 {
+    margin-bottom: 60px;
+}
+
+.button {
+    height: 50px;
+    width: 200px;
+    justify-content: center;
+    margin: auto;
+    background-color:#00A7D8;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color:#3ebce2;
+    cursor: pointer;
+}
+
+.logo {
+    -webkit-animation: action 3s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+
+.upperLogo #logo{
+
+    animation-name: move;
+    animation-duration: 0.50s;
+    animation-fill-mode: forwards; /*This makes it stay in the last animation place*/ 
+}
+
+@keyframes move {
+    0% {width: 25%; left: 40%; top: 40%;}
+    100%  {left:0px; top:0px; width: 7%; }
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}

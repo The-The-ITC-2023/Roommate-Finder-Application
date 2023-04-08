@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    font-family: 'nexaextra_light';
+    
+}
+
+h1 {    
+    background-color: #E5E8E4;
+    color:#ED7B07;
+    font-size: 42px;
+    font-family: 'nexaheavy';
+    text-align: center;
+    margin-top: 3%;
+}
+
+h2 {
+    margin-top:5%;
+    background-color: #E5E8E4;
+    color:black;
+    font-size: 15px;
+}
+
+#logo{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: auto;
+    width: 7%;
+}
+
+.login-form {
+    background-color: #E5E8E4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 0px;
+    margin-bottom: 10%;
+    border-radius: 1%;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    background-color:#E5E8E4;
+}
+
+.title {
+    background-color: #E5E8E4;
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: -2%;
+    font-weight: bold;
+}
+
+.input {
+    background-color: #BEBEBE;
+    min-height: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-color: #1AEA1D;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-weight: bold;   
+}
+
+input:focus {
+    outline-color: #898686;
+}
+
+.blue-border {
+    border-color: #03ECF4;
+}
+
+.red-border {
+    border-color: #F41313;
+}
+
+.small {
+    font-size:10px;
+    color: #666866;
+    margin-top: -4px;
+}
+
+
+#log-in {
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+.button {
+    margin-left: 20%;
+    margin-right: 20%;
+    min-width: 40%;
+    height: 35px;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaheavy';
+}
+
+
+.borderless {
+    border: none;
+}
+
+.button:hover {
+    background-color: #00A7D8;
+    cursor: pointer;
+}
+
+.error {
+    margin-top: 3%;
+    color: #ff4444;
+    background-color: #E5E8E4;
+}
+
+a#log-in {
+    background-color: #E5E8E4;
+}
+
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color:#666866;
+}
+
+a:active {
+    color: black;
+}

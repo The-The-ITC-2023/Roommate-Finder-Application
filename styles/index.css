@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: 'nexaextra_light';
+}
+
+.logo{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: auto;
+    width: 7%;
+}
+
+.parent {
+    position: relative;
+    display: block;
+
+}
+
+.topright {
+    
+    position:absolute;
+    top: 0;
+    right:0;
+}
+
+.topleft {
+    position: fixed;
+    top:18%;
+    left:0;
+}
+
+.greeting {
+
+    margin-top: 105;
+    margin: 0 auto;
+}
+
+.searchButton {
+    display: inline-block;
+    width: 125px;
+    height: auto;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaextra_light';
+    font-weight: bold;
+    border: 0.5px solid black;
+}
+
+.acctButton {
+    display: inline-block;
+    width: 125px;
+    height: auto;
+    padding: 4% 4%;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaextra_light';
+    font-weight: bold;
+    border: 0.5px solid black;
+}
+
+.centertext {
+    text-align: center;
+}
+

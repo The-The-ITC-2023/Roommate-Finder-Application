@@ -1,6 +1,7 @@
 <?php
 
 $is_invalid = false;
+$errmsg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $mysqli = require __DIR__ . "/database.php";
@@ -23,10 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["currentID"] = $user["id"];
             header("Location: index.php");
             exit;
-        } 
+        } else {
+            $errmsg = "Incorrect Password!";
+            $is_invalid = true;
+        }
+    } else {
+        $errmsg = "Email address doesn't exist!";
+        $is_invalid = true;
     }
-
-    $is_invalid = true;
 
 } 
 
@@ -36,24 +41,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 
 
 <body>
 
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
 
-    <form method="post">
-        <label for="email">email</label> <br />
-        <input type="text" id="firstName" name="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>"/><br />
-        <br />
-        <label for="password">password</label> <br />
-        <input type="password" id="password" name="password" /><br />
-        <br />
-        <input type="submit" value="submit" />
-    </form>
+    <div class=login-form>
+        <h1>Log in</h1>
+        <div id="error" class="error">
+            <?php 
+            if ($is_invalid){
+                echo "<p class='error'>",$errmsg,"</p>"; 
+            }?>
+        </div>
+        <form id="form" method="post">
+        <p class="title">Email:</p><br>
+            <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
+            <p class="title">Password:</p><br>
+            <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
+            <input class="button borderless" type="submit" value="SUBMIT" />
+        </form>
+        <div class="spacer"></div>
+    </div>
 </body>
 
 </html>
