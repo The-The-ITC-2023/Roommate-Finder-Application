@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Invalid email format";
         $errmsg = $emailErr;
         $is_invalid = true;
-    } else if ($password < 8) {
+    } else if (strlen($password) < 8) {
         $passwordErr = "Password must be at least 8 characters long";
         $errmsg = $passwordErr;
         $is_invalid = true;
