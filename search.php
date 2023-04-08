@@ -95,10 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <div id='nav' class='sticky'>
-        <a href="home.html"><img src="ITCLogoOutline.png" class="logo fixed"></a>
-        <hr class="" />
-    </div>
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo fixed"></a>
 
     <div class="topright">
         <a href="index.php"><button class="acctButton">Back</button></a>

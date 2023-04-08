@@ -83,9 +83,6 @@ form
     margin-top: 2%;
     text-align: left;
 }
-.sticky {
-    position: sticky;
-}
 
 .fixed {
     position: fixed;
