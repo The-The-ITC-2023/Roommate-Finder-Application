@@ -47,6 +47,19 @@ th {
     margin-top: 3%;
 }
 
+.acctButton {
+    display: inline-block;
+    width: 125px;
+    height: auto;
+    padding: 4% 4%;
+    border-radius: 15px;
+    background-color: #00A7D8;
+    color: white;
+    font-family: 'nexaextra_light';
+    font-weight: bold;
+    border: 0.5px solid black;
+}
+
 .spacer {
     padding:0.5%;
     background-color:#E5E8E4;
@@ -77,4 +90,10 @@ form
     top: 0px;
     height: auto;
     width: 7%;
+}
+
+.topright {   
+    position:absolute;
+    top: 0;
+    right:0;
 }

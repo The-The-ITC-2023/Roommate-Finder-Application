@@ -16,8 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $weekendSleep = null;
         $noise = null;
         $petPreference = null;
+        $pfp = null;
         $valid = true;
 
+        if(isset($_POST["pfp"])) {
+            $pfp = $_POST['pfp'];
+        }
+        else {
+            $pfpErr = "Please upload a profile picture<br>";
+            echo $pfpErr;
+            $valid = false;
+        }
         if (isset($_POST["gender"])) {
             $gender = $_POST['gender'];
         } else {
@@ -244,11 +253,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
+    <img src="ITCLogoOutline.png" class="logo">
     <div class="form">
         <h1>Tell us about Yourself!</h1>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
 
+            <div class="profilePic">
+                <label for="pfp">Profile Picture</label><br>
+                <input type="file" name="pfp" id="file" placeholder="Photo" required="" capture><br>
+            </div>
             <div class="gender-container">
                 <label id="gender" for="gender">Gender</label><br>
                 <div class="spacer"></div>
@@ -262,6 +275,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="description-container">
                 Description: Short bio (hobbies, reason for rooming, etc.) <br>
                 <textarea class="midsized" name="desc" id="desc" cols="30" rows="10" required></textarea> <br>
+            </div>
+             <!--<p class="midsized form-background">University</p> <br>
+            <input class="midsized" type="text" name="university"> <br>-->
+            <div class="wrapper">
+                <div class="select-btn">
+                    <span>Select University</span>
+                    <i class="uil uil-angle-down">^</i>
+                </div>
+                <div class="content">
+                <div class="search">
+                    <i class="uil uil-search"></i>
+                    <input spellcheck="false" type="text" placeholder="Search">
+                </div>
+                <ul class="options"></ul>
+                </div>
             </div>
             <p class="midsized form-background">University</p> <br>
             <input class="midsized" type="text" name="university" required> <br>
@@ -335,7 +363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    <!-- <script src="moreInfo.js"></script> -->
+    <script src="moreInfo.js"></script>
 </body>
 
 </html>

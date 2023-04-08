@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //init header row
     echo "<table class='fetch-results'>";
     echo "<tr>";
-    echo "<th>Name</th><th>Gender</th><th>University</th><th>Email</th><th>Similarity</th>";
+    echo "<th>Email</th><th>Name</th><th>Gender</th><th>University</th><th>Similarity</th>";
     echo "</tr>";
 
     // returns array of preference values
@@ -46,12 +46,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $currentUser = $result2->fetch_assoc();
 
     //populate table
+    $counter = 0;
+    $clicked = "";
     while ($row = $result->fetch_assoc()) {
 
         $foundUserID = $row['id'];
         $stmt2 = sprintf("SELECT *  FROM preferenceValues WHERE acct_id = '{$foundUserID}'");
         $result2 = $mysqli->query($stmt2);
         $foundUser = $result2->fetch_assoc();
+
 
         $sum = abs($currentUser['clean'] - $foundUser['clean']) / 2;
         $sum = $sum + abs($currentUser['smoke'] - $foundUser['smoke']) / 2;
@@ -65,12 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<br>";
 
         echo "<tr>";
+        echo "<td>";
+        echo "<a href='profile.php' id = {$counter}' onClick='getID(this)'>{$row['email']}</a>";
+        echo "</td>";
         echo "<td>", $row['firstName'], " ", $row['lastName'], "</td>";
         echo "<td>", $row['gender'], "</td>";
         echo "<td>", $row['university'], "</td>";
-        echo "<td>", $row['email'], "</td>";
         echo "<td>", $similarityValue . "%", "</td>";
         echo "</tr>";
+        $counter = $counter + 1;
     }
     echo "</table>";
 
@@ -85,11 +91,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <title>Search</title>
     <link rel="stylesheet" href="styles/search.css" />
+    <script src="search.js"></script>
 </head>
 
 <body>
     <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
-    
+
+    <div class="topright">
+        <a href="index.php"><button class="acctButton">Back</button></a>
+    </div>
+
     <div class="form">
         <form action="search.php" method="post">
             University:
@@ -105,6 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="submit" value="submit" />
         </form>
     </div>
+
 </body>
 
 </html>

@@ -6,14 +6,12 @@
     font-style: normal;
 
 }
-
 @font-face {
     font-family: 'nexaheavy';
     src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
          url('../fonts/nexa/nexa-heavy.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body {
@@ -31,26 +29,27 @@ body {
 .parent {
     position: relative;
     display: block;
-
+    padding:0;
+    width:100%;
+    height:100%;
 }
 
-.topright {
-    
+.topright {   
     position:absolute;
     top: 0;
     right:0;
 }
 
 .topleft {
-    position: fixed;
-    top:18%;
+    position: absolute;
+    top:0;
     left:0;
 }
 
 .greeting {
-
-    margin-top: 105;
-    margin: 0 auto;
+    position: relative;
+    width:30%;
+    margin:auto;
 }
 
 .searchButton {
@@ -80,5 +79,102 @@ body {
 
 .centertext {
     text-align: center;
+    color: black;
+    font-size: 40px;
+    font-family: 'nexaheavy';
+    text-align: center;
 }
 
+.bioDiv {
+    background-color: #E5E8E4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height:55%;
+    width:30%;
+    margin-left: 10%;
+    margin-top:8%;
+    border-radius: 1%;
+    padding: 2%;
+    position:relative;
+    float:left;
+}
+
+.bioHeader {
+    margin:auto;
+    margin-top:4%;
+    font-family: 'nexaheavy';
+    color: #ED7B07;
+}
+
+.bioText {
+    font-size: 18px;
+    position:relative;
+    background-color: white;
+    margin-top: 6%;
+}
+
+.universityP {
+    position: relative;
+    margin:auto;
+    font-weight: bold;
+}
+.majorP {
+    position: relative;
+    margin:auto;
+    font-weight: bold;
+}
+
+.preferenceDiv {
+    background-color: hsl(105, 8%, 90%);
+    display:flex;
+    width: 30%;
+    height: 60%;
+    margin-right: 10%;
+    margin-top:8%;
+    float:right;
+    border-radius: 1%;
+    padding: 2%;
+    position:relative;
+}
+
+.leftFlexBox {
+    justify-content: space-around;
+    flex:50%;
+    display:flex;
+    flex-wrap:wrap;
+    background-color: hsl(105, 8%, 90%);
+    float:left;
+    justify-content: center;
+
+
+}
+
+.rightFlexBox {
+    flex:50%;
+    display:flex;
+    flex-wrap:wrap;
+    background-color: hsl(105, 8%, 90%);
+    float:right;
+    justify-content: center;
+ 
+}
+
+
+.preferenceHeader {
+    margin:auto;
+    margin-top:4%;
+    font-family: 'nexaheavy';
+    color: #ED7B07;
+}
+
+
+.preferenceBox {
+    background-color: #f1f1f1;
+    width:100%;
+    text-align: center;
+    align-items:center;
+    font-weight: bold;
+    overflow-wrap:break-word;
+    font-weight: bold;
+}
