@@ -178,3 +178,10 @@ body {
     overflow-wrap:break-word;
     font-weight: bold;
 }
+
+textarea {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    resize:none;
+}
