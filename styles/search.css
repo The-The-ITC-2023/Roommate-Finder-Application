@@ -55,6 +55,17 @@ select, input {
     font-family: inherit;
 }
 
-.left {
-    margin-left: 10%;
+div.form
+{
+    display: block;
+    text-align: center;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    text-align: left;
 }
