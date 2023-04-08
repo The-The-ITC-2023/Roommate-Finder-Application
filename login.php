@@ -18,11 +18,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($user) {
 
         if (password_verify($_POST["password"], $user["passwordHash"])) {
-            
+
             session_start();
 
             $_SESSION["currentID"] = $user["id"];
-            header("Location: index.php");
+
+            $query = "SELECT * FROM preference WHERE id = '{$_SESSION["currentID"]}'";
+            $result = $mysqli->query($query);
+            $row = $result->fetch_assoc();
+            if ($row['clean'] == "") {
+                header("Location: moreInfo.php");
+            } else {
+                header("Location: index.php");
+            }
+
             exit;
         } else {
             $errmsg = "Incorrect Password!";
@@ -32,8 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errmsg = "Email address doesn't exist!";
         $is_invalid = true;
     }
-
-} 
+}
 
 ?>
 
@@ -52,13 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class=login-form>
         <h1>Log in</h1>
         <div id="error" class="error">
-            <?php 
-            if ($is_invalid){
-                echo "<p class='error'>",$errmsg,"</p>"; 
-            }?>
+            <?php
+            if ($is_invalid) {
+                echo "<p class='error'>", $errmsg, "</p>";
+            } ?>
         </div>
         <form id="form" method="post">
-        <p class="title">Email:</p><br>
+            <p class="title">Email:</p><br>
             <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
             <p class="title">Password:</p><br>
             <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>

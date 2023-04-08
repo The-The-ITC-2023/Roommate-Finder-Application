@@ -88,19 +88,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <form action="search.php" method="post">
-        University:
-        <br />
-        <select name='university'>
-            <option value=''>Select University</option>
-            <?php
-            foreach ($unique as $item) {
-                $stmt3 = sprintf("<option value='%s'>%s</option>", $item, $item);
-                echo $stmt3;
-            } ?>
-        </select>
-        <input type="submit" value="submit" />
-    </form>
+    <div class="form">
+        <form action="search.php" method="post">
+            University:
+            <br />
+            <select name='university'>
+                <option value=''>Select University</option>
+                <?php
+                foreach ($unique as $item) {
+                    $stmt3 = sprintf("<option value='%s'>%s</option>", $item, $item);
+                    echo $stmt3;
+                } ?>
+            </select>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
 </body>
 
 </html>
