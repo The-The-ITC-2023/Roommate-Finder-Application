@@ -288,7 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         } ?> class="midsized" type="radio" name="gender" value="other" class="gender" required>Other <br>
             </div>
 
-            Description: Short bio (hobbies, reason for rooming, etc.) <br>
+            <p class="midsized form-background">Description: Short bio (hobbies, reason for rooming, etc.)</p> <br>
             <textarea class="midsized" name="desc" id="desc" cols="30" rows="10" required><?php if (!(is_null($description_))) {
                                                                                                 echo "{$description_}";
                                                                                             } ?></textarea> <br>
