@@ -1,11 +1,11 @@
 <?php
 
-$host = "localhost";
-$dbname = "test";
-$username = "root";
-$password = "";
+$host = "database-1.clklywpfer6l.us-east-2.rds.amazonaws.com";
+$dbname = "itc2023";
+$username = "admin";
+$password = "Password69!";
 
-$conn = mysqli_connect('localhost', 'root', '', 'test', '8111');
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
 if ($conn->connect_errno) {
     die("Connection Error: " . $conn->connect_error);

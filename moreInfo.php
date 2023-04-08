@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // adds values
-            $sql = "UPDATE preferenceValues
+            $sql = "UPDATE preferencevalues
                     SET clean = '{$clean}', smoke = '{$smoke}', drugs = '{$drugs}', weekdaySleep = '{$weekdaySleep}',
                     weekendSleep = '{$weekendSleep}', loud = '{$noise}', petPreference = '{petPreference}'
                     WHERE id = {$_SESSION["currentID"]}";
@@ -262,11 +262,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php if (!empty($gender_)) {echo "<a href='home.html'>";} ?> 
+    <?php if (!empty($gender_)) {
+        echo "<a href='home.html'>";
+    } ?>
     <img src="ITCLogoOutline.png" class="logo">
-    <?php if (!is_null($gender_)) {echo "</a>";} ?>
+    <?php if (!is_null($gender_)) {
+        echo "</a>";
+    } ?>
     <hr>
-                                        
+
     <div class="form">
         <h1>Tell us about Yourself!</h1>
         <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">

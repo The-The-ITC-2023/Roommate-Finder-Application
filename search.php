@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "</tr>";
 
     // returns array of preference values
-    $stmt2 = sprintf("SELECT *  FROM preferenceValues WHERE acct_id = '{$_SESSION["currentID"]}'");
+    $stmt2 = sprintf("SELECT *  FROM preferencevalues WHERE acct_id = '{$_SESSION["currentID"]}'");
     $result2 = $mysqli->query($stmt2);
     $currentUser = $result2->fetch_assoc();
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     while ($row = $result->fetch_assoc()) {
 
         $foundUserID = $row['id'];
-        $stmt2 = sprintf("SELECT *  FROM preferenceValues WHERE acct_id = '{$foundUserID}'");
+        $stmt2 = sprintf("SELECT *  FROM preferencevalues WHERE acct_id = '{$foundUserID}'");
         $result2 = $mysqli->query($stmt2);
         $foundUser = $result2->fetch_assoc();
 
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <div id = 'nav' class='sticky'>
+    <div id='nav' class='sticky'>
         <a href="home.html"><img src="ITCLogoOutline.png" class="logo fixed"></a>
         <hr class="" />
     </div>
