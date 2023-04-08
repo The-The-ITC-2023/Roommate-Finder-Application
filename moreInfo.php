@@ -298,14 +298,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                                             } ?></textarea> <br>
 
             <p class="midsized form-background">University</p> <br>
-            <input class="midsized" required type="text" name="university" <?php if (!(is_null($university_))) {
-                                                                                echo "value='{$university_}'>";
-                                                                            } ?>> <br>
+            <select class="midsized" name="university" id="university" required>
+                <option value="">Select your University</option>
+                <option value="CSU Pomona (CPP)" <?php if (!(is_null($university_)) && $university_ == "CSU Pomona (CPP)") {
+                                                        echo 'selected';
+                                                    } ?>>CSU Pomona (CPP)</option>
+                <option value="CSU Fullerton (CSUF)" <?php if (!(is_null($university_)) && $university_ == "CSU Fullerton (CSUF)") {
+                                                            echo 'selected';
+                                                        } ?>>CSU Fullerton (CSUF)</option>
+                <option value="CSU Long Beach (CSULB)" <?php if (!(is_null($university_)) && $university_ == "CSU Long Beach (CSULB)") {
+                                                            echo 'selected';
+                                                        } ?>>CSU Long Beach (CSULB)</option>
+                <option value="University of California, Irvine (UCI)" <?php if (!(is_null($university_)) && $university_ == "University of California, Irvine (UCI)") {
+                                                                            echo 'selected';
+                                                                        } ?>>University of California, Irvine (UCI)</option>
+                <option value="University of California, Riverside (UCR)" <?php if (!(is_null($university_)) && $university_ == "University of California, Riverside (UCR)") {
+                                                                                echo 'selected';
+                                                                            } ?>>University of California, Riverside (UCR)</option>
+                <option value="University of California, Los Angeles (UCLA)" <?php if (!(is_null($university_)) && $university_ == "University of California, Los Angeles (UCLA)") {
+                                                                                    echo 'selected';
+                                                                                } ?>>University of California, Los Angeles (UCLA)</option>
+                <option value="University of California, San Diego (UCSD)" <?php if (!(is_null($university_)) && $university_ == "University of California, San Diego (UCSD)") {
+                                                                                echo 'selected';
+                                                                            } ?>>University of California, San Diego (UCSD)</option>
+                <option value="University of Southern California (USC)" <?php if (!(is_null($university_)) && $university_ == "University of Southern California (USC)") {
+                                                                            echo 'selected';
+                                                                        } ?>>University of Southern California (USC)</option>
+                <option value="Chapman University" <?php if (!(is_null($university_)) && $university_ == "Chapman University") {
+                                                        echo 'selected';
+                                                    } ?>>Chapman University</option>
+            </select>
+
+            <!-- <p class="midsized form-background">University</p> <br>
+            <input class="midsized" required type="text" name="university" > <br> -->
 
             <p class="midsized form-background">Major</p> <br>
-            <input class="midsized" required type="text" name="major" <?php if (!(is_null($major_))) {
-                                                                            echo "value='{$major_}'>";
-                                                                        } ?>> <br>
+            <select class="midsized" name="major" id="major">
+                <option value="">Select your Major</option>
+                <option value="Computer Science" <?php if (!(is_null($major_)) && $major_ == "Computer Science") {
+                                                        echo 'selected';
+                                                    } ?>>Computer Science</option>
+                <option value="Biology" <?php if (!(is_null($major_)) && $major_ == "Biology") {
+                                            echo 'selected';
+                                        } ?>>Biology</option>
+                <option value="Biochemistry" <?php if (!(is_null($major_)) && $major_ == "Biochemistry") {
+                                                    echo 'selected';
+                                                } ?>>Biochemistry</option>
+                <option value="Chemistry" <?php if (!(is_null($major_)) && $major_ == "Chemistry") {
+                                                echo 'selected';
+                                            } ?>>Chemistry</option>
+                <option value="Psychology" <?php if (!(is_null($major_)) && $major_ == "Psychology") {
+                                                echo 'selected';
+                                            } ?>>Psychology</option>
+                <option value="Political Science" <?php if (!(is_null($major_)) && $major_ == "Political Science") {
+                                                        echo 'selected';
+                                                    } ?>>Political Science</option>
+                <option value="Accounting" <?php if (!(is_null($major_)) && $major_ == "Accounting") {
+                                                echo 'selected';
+                                            } ?>>Accounting</option>
+                <option value="Finance" <?php if (!(is_null($major_)) && $major_ == "Finance") {
+                                            echo 'selected';
+                                        } ?>>Finance</option>
+                <option value="Marketing" <?php if (!(is_null($major_)) && $major_ == "Marketing") {
+                                                echo 'selected';
+                                            } ?>>Marketing</option>
+                <option value="Economics" <?php if (!(is_null($major_)) && $major_ == "Economics") {
+                                                echo 'selected';
+                                            } ?>>Economics</option>
+                <option value="Nursing" <?php if (!(is_null($major_)) && $major_ == "Nursing") {
+                                            echo 'selected';
+                                        } ?>>Nursing</option>
+                <option value="Mechanical Engineering" <?php if (!(is_null($major_)) && $major_ == "Mechanical Engineering") {
+                                                            echo 'selected';
+                                                        } ?>>Mechanical Engineering</option>
+                <option value="Aerospace Engineering" <?php if (!(is_null($major_)) && $major_ == "Aerospace Engineering") {
+                                                            echo 'selected';
+                                                        } ?>>Aerospace Engineering</option>
+                <option value="Electrical/Computer Engineering" <?php if (!(is_null($major_)) && $major_ == "Electrical/Computer Engineering") {
+                                                                    echo 'selected';
+                                                                } ?>>Electrical/Computer Engineering</option>
+                <option value="Civil Engineering" <?php if (!(is_null($major_)) && $major_ == "Civil Engineering") {
+                                                        echo 'selected';
+                                                    } ?>>Civil Engineering</option>
+            </select>
 
             <div class="preferences-container">
                 <label for="clean">How clean are you?</label><br>
