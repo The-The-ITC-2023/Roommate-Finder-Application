@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form action="moreInfo.php" method="post">
+    <form action="moreInfo.php" method="post" onsubmit="preventRefresh()">
 
         <div class="container">
             <label for="gender">Gender</label><br>
@@ -93,6 +93,7 @@
         <input type="submit" name="submit" value="Submit">
     </form>
 
+    <script src="moreInfo.js"></script>
 </body>
 
 </html>
