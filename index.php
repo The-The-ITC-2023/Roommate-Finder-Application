@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 session_start();
 
 if (isset($_SESSION["currentID"])) {
@@ -19,21 +16,12 @@ if (isset($_SESSION["currentID"])) {
 }
 ?>
 
-
-
-
 <html>
-
-
-
 
 <head>
     <title>User</title>
     <link rel="stylesheet" href="styles/index.css">
 </head>
-
-
-
 
 <body>
     <!-- <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
@@ -48,19 +36,12 @@ if (isset($_SESSION["currentID"])) {
         </div>
     </div> -->
 
-
-
-
-    <img src="ITCLogoOutline.png" class="logo">
+    <a href="home.html"><img src="ITCLogoOutline.png" class="logo"></a>
     <hr />
     <div class="parent">
         <div class="topleft">
             <a href="search.php"><button class="searchButton">Search</button> </a>
         </div>
-
-
-
-
         <div class="topright">
             <a href="moreInfo.php"><button class="acctButton">Edit Account</button></a>
             <a href="home.html"><button class="acctButton">Sign Out</button></a>
@@ -68,9 +49,6 @@ if (isset($_SESSION["currentID"])) {
         <div class="greeting">
             <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
         </div>
-
-
-
 
         <div class="bioDiv">
             <h1 class="bioHeader">Your Biography</h1>
@@ -81,29 +59,21 @@ if (isset($_SESSION["currentID"])) {
             <p class="majorP">Major: <?= $user["major"] ?></p>
         </div>
 
-
         <div class="preferenceDiv">
-            <div class = "leftFlexBox">
+            <div class = "innerFlex">
+            <h1>Your Preferences</h1>
             <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
             <div class="preferenceBox">Pets:  <?= $userPreferences["petPreference"] ?></div>
             <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>
             <div class="preferenceBox">Drugs: <?= $userPreferences["drugs"] ?></div>
             <div class="preferenceBox">Weekday Sleep: <?= $userPreferences["weekdaySleep"] ?></div>
-
-
-            </div>
-            <div class = "rightFlexBox">
             <div class="preferenceBox">Weekend Sleep: <?= $userPreferences["weekendSleep"] ?></div>
             <div class="preferenceBox">Noise: <?=$userPreferences["loud"] ?></div>
-            <div class="preferenceBox"></div>
-            <div class="preferenceBox"></div>
-            <div class="preferenceBox"></div>
-            </div>
+            
 
         </div>
 
     </div>
-
 </body>
 </html>
 
