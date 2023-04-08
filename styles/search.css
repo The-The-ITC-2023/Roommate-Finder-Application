@@ -16,8 +16,8 @@
 
 }
 
-* {
-    background-color: #2d2727;
+body {
+    background-color: #F5F5F5;
     margin: 0;
     padding: 0;
     font-family: 'nexaextra_light';
@@ -26,4 +26,35 @@
 button {
     font-family : inherit; 
     font-size: 1em; 
+}
+
+table, tr, td{
+    border: 1px solid black;
+    border-radius: 3px;
+    
+}
+
+th {
+    background-color: #ED7B07;
+    border: 1px solid black;
+    color:#E5E8E4;
+}
+
+.fetch-results {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.spacer {
+    padding:0.5%;
+    background-color:#E5E8E4;
+}
+
+select, input {
+    font-family: inherit;
+}
+
+.left {
+    margin-left: 10%;
 }
