@@ -93,7 +93,7 @@ body {
     background-color: #E5E8E4;
     width:30%;
     height:55%;
-    min-width: 30%;
+    min-width: 330px;
     margin-left: 10%;
     margin-top:4%;
     border-radius: 1%;
@@ -110,6 +110,7 @@ body {
     background-color: hsl(105, 8%, 90%);
     width: 20%;
     height: 55%;
+    min-width: 250px;
     min-height: 65%;
     margin-right: 20%;
     margin-top:4%;
