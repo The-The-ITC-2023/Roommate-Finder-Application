@@ -226,6 +226,12 @@ hr {
 .search input::placeholder{
     color: #bfbfbf;
 }
+
+select {
+    max-width: 90%;
+    overflow-x: hidden;
+}
+
 .content .options{
     margin-top: 10px;
     max-height: 250px;

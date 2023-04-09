@@ -161,3 +161,23 @@ input:focus {
     outline-color: #898686;
 }
 
+a {
+    text-decoration: none;
+}
+
+a#create {
+    background-color: #E5E8E4;
+}
+
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color:#666866;
+}
+
+a:active {
+    color: black;
+}
+

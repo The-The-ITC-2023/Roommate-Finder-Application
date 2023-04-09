@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input class="button borderless" type="submit" value="SUBMIT" />
         </form>
         <img src="ITCLogoOutline.png" id="logo">
-        <h2 class="small" style="margin-top: 1%; color: black;">Don't have an account? <a id="log-in" href="createAccount.php">Create One Here</a></h2>
+        <h2 class="small" style="margin-top: 1%; color: black;">Don't have an account? <a id="create" href="createAccount.php">Create One Here</a></h2>
     </div>
 </body>
 
