@@ -47,11 +47,11 @@ if (isset($_SESSION["currentID"])) {
             <a href="search.php"><button class="acctButton">Back</button></a>
         </div>
         <div class="greeting">
-            <p class="centertext"><?= $user["firstName"] ?>'s Roommate Profile</p>
+            <p class="centertext"><?= $user["firstName"] ?>'s Profile</p>
         </div>
 
         <div class="bioDiv">
-            <h1 class="bioHeader">Your Biography</h1>
+            <h1 class="divHeader"><?= $user["firstName"] ?>'s Biography</h1>
             <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?= $user["bio"] ?></textarea>
 
 
@@ -60,27 +60,18 @@ if (isset($_SESSION["currentID"])) {
         </div>
 
         <div class="preferenceDiv">
-            <div class="leftFlexBox">
+            <div class="innerFlex">
+                <h1 class="divHeader"><?= $user["firstName"] ?>'s Preferences</h1>
                 <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
                 <div class="preferenceBox">Pets: <?= $userPreferences["petPreference"] ?></div>
                 <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>
                 <div class="preferenceBox">Drugs: <?= $userPreferences["drugs"] ?></div>
                 <div class="preferenceBox">Weekday Sleep: <?= $userPreferences["weekdaySleep"] ?></div>
-
-
-            </div>
-            <div class="rightFlexBox">
                 <div class="preferenceBox">Weekend Sleep: <?= $userPreferences["weekendSleep"] ?></div>
-                <div class="preferenceBox">Noise: <?= $userPreferences["loud"] ?></div>
-                <div class="preferenceBox"></div>
-                <div class="preferenceBox"></div>
-                <div class="preferenceBox"></div>
+                <div class="preferenceBox bottom">Noise: <?= $userPreferences["loud"] ?></div>
             </div>
 
         </div>
-
-    </div>
-
 </body>
 
 </html>
