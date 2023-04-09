@@ -17,6 +17,7 @@ Our database contains three tables, 'account', 'preference', and 'preferencevalu
 The account table has information related to the user, and the preference table shares a 1 to 1 relationship with account. 
 The preference table holds information that stores the preferences of a user, and shares a 1 to 1 relationship with preferencevalues.
 The preferencevalues table simply holds numerical values of the preferences for later usage.
+The splitting of preferences into two tables allows for easy access of both the user's preferences and the weights of said preferences when calculating similarity.
 
 ## Required Features
 - 1: User is able to create an account on the website where they can create a roommate profile. This includes their name, email, bio, university, major, and questions/attributes to identify roommate compatibility.
