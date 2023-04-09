@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="email" name="email" class="input blue-border" placeholder=" Enter Email"><br>
             <p class="title">Password:</p><br>
             <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
-            <input class="button borderless" type="submit" value="SUBMIT" />
+            <input class="button borderless" type="submit" value="LOGIN" />
         </form>
         <img src="ITCLogoOutline.png" id="logo">
         <h2 class="small" style="margin-top: 1%; color: black;">Don't have an account? <a id="create" href="createAccount.php">Create One Here</a></h2>
