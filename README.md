@@ -1,6 +1,7 @@
 # Roommate Finder Application
 Technologies: VSCode, MySQL, HTML, CSS, Javascript, PHP
 - Important Note: We could not get a published website working that was integrated my MySQL and PHP. Because of this, our PHP server is hosted locally and the MySQL server is hosted with AWS. Running our website will most likely require having some specific files downloaded and a PHP server that is available.
+- Because of this, we have provided a video that showcases our website working correctly. https://youtu.be/MrSbQuFCY3A
 
 ## Architecture and Design
 - Home Page: The default home page for our website. A place where a user can either choose to login or create an account.
