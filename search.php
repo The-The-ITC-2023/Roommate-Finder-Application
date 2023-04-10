@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <img src="ITCLogoOutline.png" class="logo fixed">
 
     <div class="topright">
-        <a href="index.php"><button class="acctButton">Back</button></a>
+        <a href="index.php"><button class="button">Back</button></a>
     </div>
 
     <div class="form">

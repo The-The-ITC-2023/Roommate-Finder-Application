@@ -44,7 +44,7 @@ if (isset($_SESSION["currentID"])) {
         <div class="topleft">
         </div>
         <div class="topright">
-            <a href="search.php"><button class="acctButton">Back</button></a>
+            <a href="search.php"><button class="button">Back</button></a>
         </div>
         <div class="greeting">
             <p class="centertext"><?= $user["firstName"] ?>'s Profile</p>
