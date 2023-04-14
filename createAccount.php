@@ -100,6 +100,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt5->bind_param("i", $userID);
             $stmt5->execute();
 
+            $sql = "INSERT INTO images(acct_id) VALUES(?)";
+            $stmt6 = $mysqli->stmt_init();
+            if (!$stmt6->prepare($sql)) {
+                die("SQL Error: " .  $mysqli->error);
+            }
+            $stmt6->bind_param("i", $userID);
+            $stmt6->execute();
+
 
             header("Location: home.html");
         }

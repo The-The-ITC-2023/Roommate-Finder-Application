@@ -31,7 +31,6 @@ h1 {
     font-family: 'nexaheavy';
     text-align: center;
     margin-top: 3%;
-    overflow: hidden;
 }
 
 h2 {
@@ -77,8 +76,6 @@ hr {
     margin-top: 4%;
     margin-bottom: 4%;
     background-color:#E5E8E4;
-    min-width: 50%;
-
 }
 
 .title {
@@ -91,7 +88,7 @@ hr {
 
 .input {
     background-color: #BEBEBE;
-
+    min-height: 40px;
     margin-left: 15%;
     margin-right: 15%;
     border-color: #1AEA1D;

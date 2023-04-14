@@ -10,6 +10,7 @@ if (isset($_SESSION["currentID"])) {
     $sql = "SELECT * FROM account WHERE email = '{$_COOKIE['email']}'";
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
+    $gender = $user["gender"];
 
 
     $sql = "SELECT * FROM preference WHERE acct_id = '{$user['id']}'";
@@ -50,18 +51,25 @@ if (isset($_SESSION["currentID"])) {
             <p class="centertext"><?= $user["firstName"] ?>'s Profile</p>
         </div>
 
+        <div class ="profileDiv">
+            <img src = "pictures/<?php echo $user['picture']?>" alt="None" class="profilePic" >
+        </div> 
+
         <div class="bioDiv">
             <h1 class="divHeader"><?= $user["firstName"] ?>'s Biography</h1>
             <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?= $user["bio"] ?></textarea>
 
-
+            <p class="genderP">Gender: <?php if ($gender == "male") {
+                echo "Male";} elseif ($gender == "female") {echo "Female";} elseif ($gender == "other") {
+                    echo "Other";
+                } ?></p>
             <p class="universityP">University: <?= $user["university"] ?></p>
             <p class="majorP">Major: <?= $user["major"] ?></p>
         </div>
 
         <div class="preferenceDiv">
             <div class="innerFlex">
-                <h1 class="divHeader"><?= $user["firstName"] ?>'s Preferences</h1>
+                <h1 class="divHeader">Preferences</h1>
                 <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
                 <div class="preferenceBox">Pets: <?= $userPreferences["petPreference"] ?></div>
                 <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>

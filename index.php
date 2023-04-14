@@ -1,6 +1,9 @@
+
 <?php
 
 session_start();
+
+$gender = "";
 
 if (isset($_SESSION["currentID"])) {
     $mysqli = require __DIR__ . "/database.php";
@@ -8,7 +11,7 @@ if (isset($_SESSION["currentID"])) {
     $sql = "SELECT * FROM account WHERE id = {$_SESSION["currentID"]}";
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
-
+    $gender = $user["gender"];
 
     $sql = "SELECT * FROM preference WHERE acct_id = {$_SESSION["currentID"]}";
     $result2 = $mysqli->query($sql);
@@ -50,13 +53,21 @@ if (isset($_SESSION["currentID"])) {
             <p class="centertext">Hello <?= $user["firstName"] ?>!</p>
         </div>
 
+        <div class ="profileDiv">
+            <img src = "pictures/<?php echo $user['picture']?>" alt="None" class="profilePic" >
+        </div> 
+
         <div class="bioDiv">
             <h1 class="divHeader">Your Biography</h1>
             <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?=$user["bio"] ?></textarea>
 
-
+            <p class="genderP">Gender: <?php if ($gender == "male") {
+                echo "Male";} elseif ($gender == "female") {echo "Female";} elseif ($gender == "other") {
+                    echo "Other";
+                } ?></p>
             <p class="universityP">University: <?= $user["university"] ?></p>
             <p class="majorP">Major: <?= $user["major"] ?></p>
+
         </div>
 
         <div class="preferenceDiv">

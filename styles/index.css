@@ -68,10 +68,26 @@ body {
 .centertext {
     text-align: center;
     color: black;
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'nexaheavy';
     text-align: center;
 }
+
+
+.profileDiv {
+    margin:auto;
+    text-align:center;
+}
+
+.profilePic {
+    background-color: #E5E8E4;
+    width: 15%;
+    height: 30%;
+    border-radius: 50%;
+    border: 2px black;
+} 
+
+
 
 .bioDiv {
     display: flex;
@@ -80,40 +96,48 @@ body {
 
     background-color: #E5E8E4;
     width:30%;
-    height:55%;
+    height:70%;
     min-width: 330px;
     margin-left: 10%;
-    margin-top:4%;
+    margin-top:3%;
     border-radius: 1%;
     padding: 2%;
     position:relative;
     float:left;
     overflow: hidden;
-}
+
+    color: black;
+    border:1px solid #6b6969;
+} 
 
 .preferenceDiv {
     display: flex;
     flex-direction: column;
 
     background-color: hsl(105, 8%, 90%);
+    border:1px solid #6b6969;
+
     width: 20%;
-    height: 55%;
+    height: 69%;
     min-width: 250px;
     min-height: 65%;
     margin-right: 20%;
-    margin-top:4%;
+    margin-top:3%;
     float:right;
     border-radius: 1%;
     padding: 2%;
     position:relative;
     overflow: hidden;
-}
+} 
 
 .divHeader {
     margin:auto;
     margin-top:4%;
+    margin-bottom:4%;
     font-family: 'nexaheavy';
     color: #ED7B07;
+    text-shadow: 2px 2px #a35608;
+
 }
 
 .bioText {
@@ -123,15 +147,39 @@ body {
     margin-top: 6%;
 }
 
+.genderP {
+    position: relative;
+    margin-top: 8%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+    background-color: #f1f1f1;
+}
+
 .universityP {
     position: relative;
-    margin:auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
     font-weight: bold;
+    background-color: #f1f1f1;
 }
 .majorP {
     position: relative;
-    margin:auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
     font-weight: bold;
+    background-color: #f1f1f1;
+
 }
 
 .innerFlex {
@@ -166,6 +214,9 @@ body {
     font-weight: bold;
     margin-top:4%;
     vertical-align: middle;
+    padding-top: 5%;
+    font-size: 20px;
+    color:black;
 }
 
 textarea {
