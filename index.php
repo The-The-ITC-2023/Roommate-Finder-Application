@@ -16,6 +16,10 @@ if (isset($_SESSION["currentID"])) {
     $sql = "SELECT * FROM preference WHERE acct_id = {$_SESSION["currentID"]}";
     $result2 = $mysqli->query($sql);
     $userPreferences = $result2->fetch_assoc();
+
+    $sql = "SELECT * FROM images WHERE id = {$_SESSION["currentID"]}";
+    $result1 = $mysqli->query($sql);
+    $result = $result1->fetch_assoc();
 }
 ?>
 
@@ -54,7 +58,7 @@ if (isset($_SESSION["currentID"])) {
         </div>
 
         <div class ="profileDiv">
-            <img src = "pictures/<?php echo $user['picture']?>" alt="None" class="profilePic" >
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($result['image']); ?>" class="profilePic" alt="None"/> 
         </div> 
 
         <div class="bioDiv">

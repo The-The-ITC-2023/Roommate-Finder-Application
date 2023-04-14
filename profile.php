@@ -1,21 +1,25 @@
+
 <?php
 
 session_start();
 
+$gender = "";
+
 if (isset($_SESSION["currentID"])) {
     $mysqli = require __DIR__ . "/database.php";
-
-
 
     $sql = "SELECT * FROM account WHERE email = '{$_COOKIE['email']}'";
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
     $gender = $user["gender"];
 
-
     $sql = "SELECT * FROM preference WHERE acct_id = '{$user['id']}'";
     $result2 = $mysqli->query($sql);
     $userPreferences = $result2->fetch_assoc();
+
+    $sql = "SELECT * FROM images WHERE id = {$user['id']}";
+    $result1 = $mysqli->query($sql);
+    $result = $result1->fetch_assoc();
 }
 ?>
 
@@ -52,12 +56,12 @@ if (isset($_SESSION["currentID"])) {
         </div>
 
         <div class ="profileDiv">
-            <img src = "pictures/<?php echo $user['picture']?>" alt="None" class="profilePic" >
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($result['image']); ?>" class="profilePic" alt="None"/> 
         </div> 
 
         <div class="bioDiv">
-            <h1 class="divHeader"><?= $user["firstName"] ?>'s Biography</h1>
-            <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?= $user["bio"] ?></textarea>
+            <h1 class="divHeader">Biography</h1>
+            <textarea disabled class="bioText" name="desc" id="desc" cols="30" rows="10"><?=$user["bio"] ?></textarea>
 
             <p class="genderP">Gender: <?php if ($gender == "male") {
                 echo "Male";} elseif ($gender == "female") {echo "Female";} elseif ($gender == "other") {
@@ -65,21 +69,25 @@ if (isset($_SESSION["currentID"])) {
                 } ?></p>
             <p class="universityP">University: <?= $user["university"] ?></p>
             <p class="majorP">Major: <?= $user["major"] ?></p>
+
         </div>
 
         <div class="preferenceDiv">
-            <div class="innerFlex">
-                <h1 class="divHeader">Preferences</h1>
-                <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
-                <div class="preferenceBox">Pets: <?= $userPreferences["petPreference"] ?></div>
-                <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>
-                <div class="preferenceBox">Drugs: <?= $userPreferences["drugs"] ?></div>
-                <div class="preferenceBox">Weekday Sleep: <?= $userPreferences["weekdaySleep"] ?></div>
-                <div class="preferenceBox">Weekend Sleep: <?= $userPreferences["weekendSleep"] ?></div>
-                <div class="preferenceBox bottom">Noise: <?= $userPreferences["loud"] ?></div>
-            </div>
-
+            <div class = "innerFlex">
+            <h1 class="divHeader">Preferences</h1>
+            <div class="preferenceBox">Cleanliness: <?= $userPreferences["clean"] ?></div>
+            <div class="preferenceBox">Pets:  <?= $userPreferences["petPreference"] ?></div>
+            <div class="preferenceBox">Smoking: <?= $userPreferences["smoke"] ?></div>
+            <div class="preferenceBox">Drugs: <?= $userPreferences["drugs"] ?></div>
+            <div class="preferenceBox">Weekday Sleep: <?= $userPreferences["weekdaySleep"] ?></div>
+            <div class="preferenceBox">Weekend Sleep: <?= $userPreferences["weekendSleep"] ?></div>
+            <div class="preferenceBox bottom">Noise: <?=$userPreferences["loud"] ?></div>
         </div>
-</body>
 
+    </div>
+</body>
 </html>
+
+
+
+
