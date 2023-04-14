@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'nexaextra_light';
+    src: url('../fonts/nexa/nexa-extralight.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-extralight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nexaheavy';
+    src: url('../fonts/nexa/nexa-heavy.woff2') format('woff2'),
+         url('../fonts/nexa/nexa-heavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    font-family: 'nexaextra_light';
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+}
+
+#logo{
+    margin-top: 6%;
+    width: 25%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+.loading {
+    display:flex;
+    flex-direction: row;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: -7%;
+    text-align: center;
+    margin-bottom: 6%;
+    font-size: 30px;
+}
+
+#loading {
+    width:5%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 8%;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+.logo {
+    margin-top: 10%;
+    -webkit-animation: action 3s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+
+.upperLogo #logo{
+
+    animation-name: move;
+    animation-duration: 0.50s;
+    animation-fill-mode: forwards; /*This makes it stay in the last animation place*/ 
+}
+
+@keyframes move {
+    0% {width: 25%; left: 40%; top: 40%;}
+    100%  {left:0px; top:0px; width: 7%; }
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}

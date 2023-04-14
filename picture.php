@@ -49,16 +49,24 @@ echo $statusMsg;
 
 <html>
     <head>
-    <link rel="stylesheet" href="styles/moreinfo.css">
+    <link rel="stylesheet" href="styles/picture.css">
 
     </head>
     <body>
-        <form action="picture.php" method="post" enctype="multipart/form-data">
-        <label>Select Image File:</label>
-        <input type="file" name="image">
-        <input type="submit" name="submit" value="Upload">
-        </form>
-
-        <a href="index.php"><button class="button" <?php if ($result['image'] == null) {echo "disabled";} ?> >Done</button></a>
+        <img src="ITCLogoOutline.png" class="logo">
+        <hr>
+        <div class="photo">
+            <div id="title">Last Step: Add Profile Photo</div>
+            <form action="picture.php" method="post" enctype="multipart/form-data" class="photo-form">
+                <label id="image-header">Select Your Profile Image:</label>
+                <input type="file" name="image" id="file-select">
+                <img src="ImageError.png" id="profile">
+                <div id="warning">*Only file types .jpg .png & .jpeg are accepted</div>
+                <input type="submit" name="submit" value="Confirm Photo" id="upload-button" class="button">
+            </form>
+            <div class="submit-button">
+                <a href="index.php"><button class="button" <?php if ($result['image'] == null) {echo "disabled";} ?> >Finish Setting Profile</button></a>
+            </div>
+        </div>
     </body>
 </html>

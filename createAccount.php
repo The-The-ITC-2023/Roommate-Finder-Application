@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt6->execute();
 
 
-            header("Location: home.html");
+            header("Location: accountCreated.html");
         }
     }
 }
