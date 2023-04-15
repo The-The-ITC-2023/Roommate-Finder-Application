@@ -2,54 +2,65 @@
 $is_invalid = false;
 $errmsg = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $cpassword = $_POST["cpassword"];
+$fname = $lname = $email = $password = $cpassword = "";
 
-    if (empty($fname)) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (empty($_POST["fname"])) {
         $fnameErr = "Please enter your first name";
         $errmsg = $fnameErr;
         $is_invalid = true;
-    } else if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
+    } else if (!preg_match("/^[a-zA-Z-' ]*$/", $_POST["fname"])) {
         $fnameErr = "First name must have only letters and white space";
         $errmsg = $fnameErr;
         $is_invalid = true;
-    } else if (empty($lname)) {
+    } else {
+        $fname = $_POST["fname"];
+    }
+    if (empty($_POST["lname"])) {
         $lnameErr = "Please enter your last name";
         $errmsg = $lnameErr;
         $is_invalid = true;
-    } else if (!preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
+    } else if (!preg_match("/^[a-zA-Z-' ]*$/", $_POST["lname"])) {
         $lnameErr = "Last name must have only letters and white space";
         $errmsg = $lnameErr;
         $is_invalid = true;
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    } else {
+        $lname = $_POST["lname"];
+    }
+    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
         $errmsg = $emailErr;
         $is_invalid = true;
-    } else if (strlen($password) < 8) {
+    } else {
+        $email = $_POST["email"];
+    }
+    if (strlen($_POST["password"]) < 8) {
         $passwordErr = "Password must be at least 8 characters long";
         $errmsg = $passwordErr;
         $is_invalid = true;
-    } elseif (!preg_match("#[0-9]+#", $password)) {
+    } elseif (!preg_match("#[0-9]+#", $_POST["password"])) {
         $passwordErr = "Password must contain at least 1 Number";
         $errmsg = $passwordErr;
         $is_invalid = true;
-    } elseif (!preg_match("#[A-Z]+#", $password)) {
+    } elseif (!preg_match("#[A-Z]+#", $_POST["password"])) {
         $passwordErr = "Password must contain at least 1 Capital Letter";
         $errmsg = $passwordErr;
         $is_invalid = true;
-    } elseif (!preg_match("#[a-z]+#", $password)) {
+    } elseif (!preg_match("#[a-z]+#", $_POST["password"])) {
         $passwordErr = "Password must contain at least 1 Lowercase Letter";
         $errmsg = $passwordErr;
         $is_invalid = true;
-    } else if ($password != $cpassword) {
+    } else if ($_POST["password"] != $_POST["cpassword"]) {
         $passwordErr = "Passwords do not match";
         $errmsg = $passwordErr;
         $is_invalid = true;
     } else {
+        $password = $_POST["password"];
+        $cpassword = $_POST["cpassword"];
+    }
+    if(!$is_invalid) {
+        
         $mysqli = require __DIR__ . "/database.php";
 
         //check if email exists already
@@ -135,10 +146,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <form id="form" method="post">
             <p class="title">Name:</p><br>
-            <input type="text" name="fname" class="input blue-border" placeholder=" First Name"><br>
-            <input type="text" name="lname" class="input blue-border" placeholder=" Last Name"><br>
+            <input type="text" name="fname" class="input blue-border" placeholder=" First Name" value="<?php echo $fname; ?>"><br>
+            <input type="text" name="lname" class="input blue-border" placeholder=" Last Name" value="<?php echo $lname; ?>"><br>
             <p class="title">Email:</p><br>
-            <input type="email" name="email" class="input blue-border" placeholder=" Ex: JohnDoe@gmail.com"><br>
+            <input type="email" name="email" class="input blue-border" placeholder=" Ex: JohnDoe@gmail.com" value="<?php echo $email; ?>"><br>
             <p class="title">Password:</p><br>
             <input type="password" name="password" class="input blue-border" placeholder=" Enter Password..."><br>
             <p class="title">Confirm Password:</p><br>
