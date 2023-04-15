@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
         // Allow certain file formats 
-        $allowTypes = array('jpg', 'png', 'jpeg');
+        $allowTypes = array('jpg', 'png', 'jpeg', 'HEIF', 'HEIC', 'HEVC');
         if (in_array($fileType, $allowTypes)) {
             $image = $_FILES['image']['tmp_name'];
             $imgContent = addslashes(file_get_contents($image));
@@ -60,13 +60,13 @@ echo $statusMsg;
         <form action="picture.php" method="post" enctype="multipart/form-data" class="photo-form">
             <label id="image-header">Select Your Profile Image:</label>
             <input type="file" name="image" id="file-select">
-            <div id="warning">*Only file types .jpg .png & .jpeg are accepted</div>
-            <input type="submit" name="submit" value="Confirm Photo" id="upload-button" class="button">
+            <div id="warning">*Only file types .jpg .png .jpeg & .HEVC are accepted</div>
+            <input type="submit" name="submit" value="Save Photo" id="upload-button" class="button">
         </form>
         <div class="submit-button">
             <a href="index.php"><button class="button" <?php if ($result['image'] == null) {
                                                             echo "hidden";
-                                                        } ?>>Finish Setting Profile</button></a>
+                                                        } ?>>Continue Without Setting Profile Picture</button></a>
         </div>
     </div>
 </body>
