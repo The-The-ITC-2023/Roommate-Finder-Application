@@ -12,7 +12,9 @@ if (isset($_SESSION["currentID"])) {
 
     $universityArray = [];
     while ($row = $result->fetch_assoc()) {
-        array_push($universityArray, $row['university']);
+        if ($row['university'] != "") {
+            array_push($universityArray, $row['university']);
+        }
     }
 
     $unique = array_unique($universityArray);

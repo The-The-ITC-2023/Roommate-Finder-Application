@@ -1,4 +1,4 @@
 function redirectPage(){
     window.location="login.php";
 }
-setTimeout('redirectPage()',4000);
+setTimeout('redirectPage()',1500);
