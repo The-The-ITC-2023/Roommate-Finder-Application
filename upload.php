@@ -19,53 +19,63 @@
         $imageExtension = explode('.', $img_name);
         $imageExtension = strtolower(end($imageExtension));
         $newImageName = $user["email"] . $img_name;
-
+        $validImg = true;
 
         if (!in_array($imageExtension, $validImageExtension)) {
+            $validImg = false;
             echo "Invalid image extension";
-        } else if ($img_size > 2000000) {
-                echo "too big";
-        } else if ($user["email"] != "") {
-
-            $mysqli = require __DIR__ . "/database.php";
-            $sql = "SELECT * FROM account WHERE id = 1";
-            $result1 = $mysqli->query($sql);
-            $user = $result1->fetch_assoc();
-            $oldImage = $user["picture"];
-
-            $file_pointer = "pictures/$oldImage";
-  
-            // Use unlink() function to delete a file
-            if (!unlink($file_pointer)) {
-                echo ("$file_pointer cannot be deleted due to an error");
-            }
-            else {
-                echo ("$file_pointer has been deleted");
-            }
-            
-            move_uploaded_file($tmp_name, 'pictures/' . $newImageName);
-            $mysqli = require __DIR__ . "/database.php";
-            $sql = "UPDATE account SET picture = '$newImageName'WHERE id = 1";
-
-            $stmt = $mysqli->stmt_init();
-            if (!$stmt->prepare($sql)) {
-                die("SQL Error: " .  $mysqli->error);
-            }
-            $stmt->execute();
-           
-        } else {
-            move_uploaded_file($tmp_name, 'pictures/' . $newImageName);
-
-            $mysqli = require __DIR__ . "/database.php";
-            $sql = "UPDATE account SET picture = '$newImageName'WHERE id = 1";
-
-            $stmt = $mysqli->stmt_init();
-            if (!$stmt->prepare($sql)) {
-                die("SQL Error: " .  $mysqli->error);
-            }
-            $stmt->execute();
-            }
         }
+        
+        if ($img_size > 2000000) {
+                $validImg = false;
+                echo "too big";
+        } 
+
+        if ($validImg) {
+            if ($user["email"] != "") {
+                //replace old picture
+                $mysqli = require __DIR__ . "/database.php";
+                $sql = "SELECT * FROM account WHERE id = 1";
+                $result1 = $mysqli->query($sql);
+                $user = $result1->fetch_assoc();
+                $oldImage = $user["picture"];
+    
+                $file_pointer = "pictures/$oldImage";
+      
+                // Use unlink() function to delete a file
+                if (!unlink($file_pointer)) {
+                    echo ("$file_pointer cannot be deleted due to an error");
+                }
+                else {
+                    echo ("$file_pointer has been deleted");
+                }
+                
+                move_uploaded_file($tmp_name, 'pictures/' . $newImageName);
+                $mysqli = require __DIR__ . "/database.php";
+                $sql = "UPDATE account SET picture = '$newImageName'WHERE id = 1";
+    
+                $stmt = $mysqli->stmt_init();
+                if (!$stmt->prepare($sql)) {
+                    die("SQL Error: " .  $mysqli->error);
+                }
+                $stmt->execute();
+               
+            } else {
+                //add new picture
+                move_uploaded_file($tmp_name, 'pictures/' . $newImageName);
+    
+                $mysqli = require __DIR__ . "/database.php";
+                $sql = "UPDATE account SET picture = '$newImageName'WHERE id = 1";
+    
+                $stmt = $mysqli->stmt_init();
+                if (!$stmt->prepare($sql)) {
+                    die("SQL Error: " .  $mysqli->error);
+                }
+                $stmt->execute();
+            }
+        } 
+        
+    }
 
 ?>
 

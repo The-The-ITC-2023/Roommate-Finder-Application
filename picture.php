@@ -25,24 +25,30 @@ if (isset($_POST["submit"])) {
         $allowTypes = array('jpg', 'png', 'jpeg', 'HEIF', 'HEIC', 'HEVC');
         if (in_array($fileType, $allowTypes)) {
             $image = $_FILES['image']['tmp_name'];
+            $img_size = $_FILES['image']['size'];
             $imgContent = addslashes(file_get_contents($image));
 
-            $mysqli = require __DIR__ . "/database.php";
+            if ($img_size > 2101546) {
+                $statusMsg = 'Image too large!(Max size 2MB)';
+            } else {
+                $mysqli = require __DIR__ . "/database.php";
 
-            $sql = "UPDATE images SET image = '$imgContent' WHERE id = {$_SESSION["currentID"]}";
-            //$sql = "INSERT into images (image, created) VALUES ('$imgContent', NOW())";
-            $stmt4 = $mysqli->stmt_init();
-            if (!$stmt4->prepare($sql)) {
-                die("SQL Error: " .  $mysqli->error);
+                $sql = "UPDATE images SET image = '$imgContent' WHERE id = {$_SESSION["currentID"]}";
+                //$sql = "INSERT into images (image, created) VALUES ('$imgContent', NOW())";
+                $stmt4 = $mysqli->stmt_init();
+                if (!$stmt4->prepare($sql)) {
+                    die("SQL Error: " .  $mysqli->error);
+                }
+                $stmt4->execute();
+                header("Location: index.php");
             }
-            $stmt4->execute();
-            header("Location: index.php");
+            
         }
     }
 }
 
 // Display status message 
-echo $statusMsg;
+//echo $statusMsg;
 ?>
 
 <html>
@@ -57,6 +63,7 @@ echo $statusMsg;
     <hr>
     <div class="photo">
         <div id="title">Last Step: Add Profile Photo</div>
+        <div class='err'><?php echo $statusMsg; ?></div>
         <form action="picture.php" method="post" enctype="multipart/form-data" class="photo-form">
             <label id="image-header">Select Your Profile Image:</label>
             <input type="file" name="image" id="file-select">
