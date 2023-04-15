@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
     <hr>
     <div class="photo">
         <div id="title">Last Step: Add Profile Photo</div>
-        <div class='err'><?php echo $statusMsg; ?></div>
+        <div class='err'><?php if ($statusMsg != '') { echo $statusMsg;} ?></div>
         <form action="picture.php" method="post" enctype="multipart/form-data" class="photo-form">
             <label id="image-header">Select Your Profile Image:</label>
             <input type="file" name="image" id="file-select">
