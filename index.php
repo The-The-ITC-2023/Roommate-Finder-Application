@@ -28,6 +28,7 @@ if (isset($_SESSION["currentID"])) {
 <head>
     <title>User</title>
     <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>
@@ -47,11 +48,11 @@ if (isset($_SESSION["currentID"])) {
     <hr />
     <div class="parent">
         <div class="topleft">
-            <a href="search.php"><button class="button">Search</button> </a>
+            <a href="search.php"><button>Search</button> </a>
         </div>
         <div class="topright">
-            <a href="moreInfo.php"><button class="button">Edit Account</button></a>
-            <a href="home.html"><button class="button">Sign Out</button></a>
+            <a href="moreInfo.php"><button>Edit Account</button></a>
+            <a href="home.html"><button class='logout'>Sign Out</button></a>
         </div>
         <div class="greeting">
             <p class="centertext">Hello <?= $user["firstName"] ?>!</p>

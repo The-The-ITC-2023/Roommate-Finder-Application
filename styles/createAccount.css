@@ -48,6 +48,12 @@ h2 {
     width: 7%;
 }
 
+@media screen and (max-width: 676px) {
+    #logo {
+        width: 20%;
+    }
+}
+
 .login-form {
     background-color: #E5E8E4;
     display: flex;
@@ -62,8 +68,21 @@ h2 {
     border-radius: 1%;
 }
 
+@media screen and (max-width: 676px) {
+    .login-form {
+        width: 75%;
+        margin: auto;
+    }
+}
+
 hr {
     margin-top: 0.5%;
+}
+
+@media screen and (max-width: 676px) {
+    hr {
+        margin: 1% 0%;
+    }
 }
 
 #form {
@@ -114,6 +133,12 @@ input:focus {
     font-size:10px;
     color: #666866;
     margin-top: -4px;
+}
+
+@media screen and (max-width: 676px) {
+ .small {
+    font-size: 12px;
+ }
 }
 
 

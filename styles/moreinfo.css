@@ -31,6 +31,12 @@
     width: 7%;
 }
 
+@media screen and (max-width: 676px) {
+    .logo {
+        width: 20%;
+    }
+}
+
 .form {
     display: flex;
     background-color: #E5E8E4;
@@ -44,6 +50,13 @@
     margin-bottom: 10%;
     border-radius: 1%;
     padding: 2%;
+}
+
+@media screen and (max-width: 676px) {
+    .form {
+        width: 75%;
+        margin: auto;
+    }
 }
 
 input {

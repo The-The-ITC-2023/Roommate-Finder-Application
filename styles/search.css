@@ -34,20 +34,36 @@ table, tr, td{
     
 }
 
+@media screen and (max-width: 676px) {
+    table {
+        width: 100%;
+    }
+}
+
 th {
     background-color: #ED7B07;
     border: 1px solid black;
     color:#E5E8E4;
 }
 
+@media screen and (max-width: 676px) {
+    table {
+        font-size: 13px;
+    }
+
+    th {
+        margin: 0 2%;
+    }
+}
+
 .fetch-results {
     width: 80%;
     margin: auto;
     border-collapse: collapse;
-    margin-top: 3%;
+    margin-top: 25%;
 }
 
-.button {
+button {
     display: inline-block;
     width: 125px;
     height: auto;
@@ -80,9 +96,11 @@ form
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
+    margin-top: 4%;
     text-align: left;
 }
+
+
 
 .fixed {
     position: fixed;
@@ -101,8 +119,15 @@ hr {
     width: 7%;
 }
 
+@media screen and (max-width: 676px) {
+    .logo {
+        width: 20%;
+    }
+}
+
 .topright {   
     position:absolute;
-    top: 0;
-    right:0;
+    top: 5px;
+    right: 5px;
 }
+

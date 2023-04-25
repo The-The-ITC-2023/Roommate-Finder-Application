@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sum = $sum + abs($currentUser['petPreference'] - $foundUser['petPreference']) / 2;
 
         $similarityValue = ceil(100 - ($sum / 7) * 4);
-        echo "<br>";
+        //echo "<br>";
 
         echo "<tr>";
         echo "<td>";
@@ -94,13 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Search</title>
     <link rel="stylesheet" href="styles/search.css" />
     <script src="search.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>
     <img src="ITCLogoOutline.png" class="logo fixed">
 
     <div class="topright">
-        <a href="index.php"><button class="button">Back</button></a>
+        <a href="index.php"><button>Back</button></a>
     </div>
 
     <div class="form">

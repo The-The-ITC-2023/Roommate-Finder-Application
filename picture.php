@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
 
 <head>
     <link rel="stylesheet" href="styles/picture.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>

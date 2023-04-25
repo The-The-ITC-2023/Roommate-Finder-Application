@@ -258,7 +258,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Edit Account</title>
     <link rel="stylesheet" href="styles/moreinfo.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>

@@ -43,6 +43,12 @@ body{
     width: 7%;
 }
 
+@media screen and (max-width: 676px) {
+    .logo {
+        width: 20%;
+    }
+}
+
 #title {
     background-color: #E5E8E4;
     color:#ED7B07;
@@ -69,6 +75,17 @@ body{
     margin-left: 30%;
     margin-right: 30%;
     background-color: #E5E8E4;
+}
+
+@media screen and (max-width: 676px) {
+    .photo {
+        width: 75%;
+        margin: auto;
+    }
+
+    hr {
+        margin: 1% 0%;
+    }
 }
 
 .photo-form{
@@ -129,6 +146,12 @@ a {
     justify-content: center;
 }
 
+@media screen and (max-width: 676px) {
+    .button {
+        height: 2.5em;
+    }
+}
+
 .button:hover {
     background-color: #11B8E9;
     cursor: pointer;
@@ -138,4 +161,5 @@ a {
     background-color: #E5E8E4;
     text-align-last: center;
     margin: auto;
+    width: 100%;
 }

@@ -41,6 +41,12 @@ body {
     display: block;
 }
 
+@media screen and (max-width: 676px) {
+    #logo {
+        margin-top: 12%;
+    }
+}
+
 .loading {
     display:flex;
     flex-direction: row;

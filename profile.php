@@ -28,6 +28,7 @@ if (isset($_SESSION["currentID"])) {
 <head>
     <title>User</title>
     <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 </head>
 
 <body>

@@ -101,3 +101,15 @@ h2 {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
 }
+
+
+@media screen and (max-width: 675px) {
+    #logo {
+        width: 30%;
+    }
+
+    body {
+        margin: 2%;
+    }
+
+}

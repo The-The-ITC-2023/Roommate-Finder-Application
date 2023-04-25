@@ -47,8 +47,20 @@ h2 {
     width: 7%;
 }
 
+@media screen and (max-width: 676px) {
+    .logo {
+        width: 20%;
+    }
+}
+
 hr {
     margin-top: 0.5%;
+}
+
+@media screen and (max-width: 676px) {
+    hr {
+        margin: 1% 0%;
+    }
 }
 
 #logo{
@@ -60,6 +72,12 @@ hr {
     background: none;
 }
 
+@media screen and (max-width: 676px) {
+    #logo {
+        margin-bottom: 0px;
+        margin-top: 1%;
+    }
+}
 
 
 .login-form {
@@ -75,6 +93,14 @@ hr {
     margin-bottom: 5%;
     border-radius: 1%;
     padding: 2%;
+}
+
+@media screen and (max-width: 676px) {
+    .login-form {
+        width: 75%;
+        height: 80%;
+        margin: auto;
+    }
 }
 
 #form {
