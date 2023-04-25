@@ -60,7 +60,13 @@ th {
     width: 80%;
     margin: auto;
     border-collapse: collapse;
-    margin-top: 25%;
+    margin-top: 8%;
+}
+
+@media screen and (max-width: 676px) {
+    .fetch-results {
+        margin-top: 25%;
+    }
 }
 
 button {
